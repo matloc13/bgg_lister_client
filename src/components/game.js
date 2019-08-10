@@ -3,11 +3,13 @@ import { BASE_URL } from '../constants'
 
 const Game = (props) => {
 
+  const {lookup, name, } = props
+
   const [currentGame, setCurrentGame] = useState()
 
   useEffect(() => {
-    searchGame(props.lookup)
-  },[])
+    searchGame(lookup)
+  },[lookup])
 
   const searchGame = (id) => {
     fetch(`${BASE_URL}/bgg_lists/${id}`)
@@ -17,12 +19,12 @@ const Game = (props) => {
 
   return (
     <>
-      <p onClick={() => { searchGame(props.lookup)}}
-      >{props.name}</p>
+      <p onClick={() => { searchGame(lookup)}}
+      >{name}</p>
       {/* <p>{props.lookup}</p> */}
       {
         currentGame ?
-          <img src={currentGame.items.item.thumbnail} alt={props.name}/>
+          <img src={currentGame.items.item.thumbnail} alt={name}/>
         :''
       }
       <hr/>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, } from 'react'
+import { BASE_URL } from '../constants';
 import Game from './game'
 
 const Main = () => {
@@ -10,7 +11,7 @@ const Main = () => {
   },[])
 
   const getSolitaireList = () => {
-    fetch(`/bgg_lists`)
+    fetch(`${BASE_URL}/bgg_lists`)
     .then(res => res.json())
     .then(json => setGames(json))
     .catch(err => console.error(err))
