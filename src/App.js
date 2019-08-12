@@ -23,7 +23,6 @@ function App() {
 
   const [user, setUser] = useState()
   const [username, setUsername] = useState()
-  // const [token, setToken] = useState()
   const [hotlist, setHotlist] = useState([])
   const [list, setList] = useState([])
   const [slist, setSlist] = useState({})
@@ -34,10 +33,12 @@ function App() {
   useEffect(() => {
     console.log('did load');
     getHotList()
-    // if (user) {
+
       setUser(JSON.parse(localStorage.getItem("user")))
-    // }
-    // notify(user.user.username)
+  if (user){
+      notify(user.user.username)
+  }
+
     return () => {
       console.log('clear hot list');
     }
@@ -46,13 +47,16 @@ function App() {
 useEffect(() => {
   console.log(user);
   localStorage.setItem("user", JSON.stringify(user))
-    // notify(user.user.username)
+  if (user){
+      notify(`welcome ${user.user.username}`)
+  }
 },[user])
 
   const getHotList = () => {
     fetch(`${BASE_URL}/hotlists`)
     .then(res => res.json())
     .then(json => setHotlist(json))
+    .then(notify('welcome to Bgg lister!'))
     .catch(err => console.error(err))
   }
 
@@ -61,7 +65,7 @@ useEffect(() => {
   }
 
   const notify = (item) => {
-    toast(`${item} created`)
+    toast(`${item} `)
   }
 
 

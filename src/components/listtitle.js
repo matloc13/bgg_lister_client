@@ -22,6 +22,8 @@ const ListTitle = (props) => {
           </span>
           {
             showEdit &&
+            // list.user.id === uid &&
+            // slist.id === lid &&
             <>
               <span onClick={() => {
                 setSlist(list)

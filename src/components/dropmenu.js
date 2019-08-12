@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const DropMenu = () => {
   return (
-    <div>
+    <div className={"dropNav"}>
       <span>
         <Link to="/matlocsolo">
           solitaire

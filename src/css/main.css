@@ -2,9 +2,42 @@
   border: 1px solid gold; }
 
 .App {
-  text-align: center;
+  text-align: center; }
+
+.navbar {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(auto); }
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  height: 10vh;
+  place-items: center;
+  grid-gap: 1%; }
+
+.dropNav {
+  display: flex;
+  flex-flow: column;
+  width: 25%;
+  z-index: 2; }
+  .dropNav span {
+    text-align: right;
+    padding: 3%; }
+
+.slider {
+  width: 60%;
+  margin: auto;
+  height: 150px; }
+
+.sliderWrapper {
+  display: flex;
+  position: relative;
+  overflow: inherit; }
+
+.slide {
+  margin: 0 30%; }
+
+.rightArrow {
+  position: absolute;
+  right: 0;
+  z-index: 3;
+  color: red; }
 
 /*# sourceMappingURL=main.css.map */

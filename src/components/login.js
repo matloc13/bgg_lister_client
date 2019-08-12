@@ -3,7 +3,7 @@ import Input from './input';
 
 const Login = (props) => {
 
-  const { user, setUser, handleSubmit,type, } = props
+  const { user, setUser, handleSubmit,type, setSwitch, switchval, } = props
   const [inputs, setInputs] = useState({username: '', password: ''}
   )
 
@@ -27,25 +27,29 @@ const userSubmit = (event) => {
   // })
 }
   return (
-    <form onSubmit={userSubmit}>
-      <Input
-        name={"username"}
-        type={"text"}
-        value={inputs.username}
-        handleChange={handleChange}
-      />
-      <Input
-        name={"password"}
-        type={"text"}
-        value={inputs.password}
-        handleChange={handleChange}
+    <form onSubmit={userSubmit} className={"logForm"}>
+      <fieldset>
+        <Input
+          name={"username"}
+          type={"text"}
+          value={inputs.username}
+          handleChange={handleChange}
+        />
+        <Input
+          name={"password"}
+          type={"text"}
+          value={inputs.password}
+          handleChange={handleChange}
 
-      />
+        />
 
-      <Input
-        type={"submit"}
-        value={ type? "Login" : "Create User"}
-      />
+        
+        <input
+          type="submit"
+          value={type? "Login": "Create User"}
+          onClick={() => setSwitch(!switchval)}
+        />
+      </fieldset>
     </form>
   )
 }

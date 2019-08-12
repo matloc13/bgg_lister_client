@@ -16,7 +16,7 @@ const Lists = (props) => {
   const [showForm, setShowForm] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [showUpdate, setShowUpdate] = useState(false)
-
+  // const [cgame, setCGame] = useState()
 
 // lifecycle hooks
   useEffect(() => {
@@ -98,13 +98,13 @@ const Lists = (props) => {
     }
     {
       showUpdate &&
-        // sList.id === list.id
       <>
         <ListForm
           list={slist}
           handleSubmit={updateList}
         />
         <span onClick={() => {
+
           setShowUpdate(!showUpdate)
         }}
         >close</span>
@@ -115,22 +115,23 @@ const Lists = (props) => {
   <div className={"listContainer"}>
     {  list ? list.map((ele) => {
       return (
-
-        <ListTitle
-          uid={uid}
-          list={ele}
-          slist={slist}
-          lid={ele.id}
-          title={ele.title}
-          setShowEdit={setShowEdit}
-          showEdit={showEdit}
-          setSlist={setSlist}
-          setShowUpdate={setShowUpdate}
-          showUpdate={showUpdate}
-          deleteList={deleteList}
-          updateList={updateList}
-        />
-      )
+        <div key={ele.id} className={'listTitle'}>
+          <ListTitle
+            uid={uid}
+            list={ele}
+            slist={slist}
+            lid={ele.id}
+            title={ele.title}
+            setShowEdit={setShowEdit}
+            showEdit={showEdit}
+            setSlist={setSlist}
+            setShowUpdate={setShowUpdate}
+            showUpdate={showUpdate}
+            deleteList={deleteList}
+            updateList={updateList}
+          />
+        </div>
+          )
     }):''
     }
 

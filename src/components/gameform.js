@@ -62,8 +62,14 @@ const gameSubmit = (event) => {
   // })
 }
 
-
-
+// const optionsVar = {
+//   list.map((ele) => {
+//     return (
+//       <option value={ele.id} key={ele.id}>{ele.title}</option>
+//     )
+//   })
+// }
+//
 
 
 
@@ -71,48 +77,39 @@ const gameSubmit = (event) => {
   return (
     <>
       <form onSubmit={gameSubmit} id={"gameForm"}>
+        <fieldset>
+          <label htmlFor="lists">List</label>
+          {/* <select name="lists" autoFocus form={"gameForm"} value={option}
+            onChange={()=> setOption()} options={optionsVar}>
 
-        <label htmlFor="lists">Lists</label>
+          </select> */}
 
-        <Input
-          handleChange={handleChange}
-          name={"name"}
-          type={"hidden"}
-          value={inputs.name}
-        />
+          <input
+            type={"hidden"}
+            name={"name"}
+            value={inputs.name} handleChange={handleChange}/>
 
-        <Input
-          handleChange={handleChange}
-          name={"img"}
-          type={"hidden"}
-          value={inputs.img}
-        />
+          <input
+            type={"hidden"}
+            name={"img"}
+            value={inputs.img}
+            handleChange={handleChange}/>
 
-        <Input
-          handleChange={handleChange}
-          name={"bggid"}
-          type={"hidden"}
-          value={inputs.bggid}
-        />
 
-        <Input
-          type={"submit"}
-          value={"add game"}
-        />
+          <input
+            type={"hidden"}
+            name={"bggid"}
+            value={inputs.bggid} handleChange={handleChange}/>
+
+          <Input
+            type={"submit"}
+            value={"add game"}
+          />
+
+        </fieldset>
       </form>
 
-      <select name="lists" autoFocus form={"gameForm"}>
-        {
 
-          list.map((ele) => {
-            return (
-              <option value={ele.id} key={ele.id}>{ele.title}</option>
-              )
-            })
-            }
-
-
-    </select>
   </>
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, } from 'react'
 import { BASE_URL } from '../constants';
 import Login from './login';
 import SignUp  from './signup';
@@ -6,6 +6,8 @@ import SignUp  from './signup';
 const Nav = (props) => {
 
   const { user, setUser, toggle,} = props
+  const [login, setLogin] = useState(false)
+  const [signin, setSignin] = useState(false)
 
   const signupUser = (fi) => {
     fetch(`${BASE_URL}/users`, {
@@ -37,7 +39,7 @@ const Nav = (props) => {
   }
 
   return (
-    <nav>
+    <nav className={"navbar"}>
       <span onClick={() => {
         toggle()
       }}>
@@ -49,22 +51,32 @@ const Nav = (props) => {
           {user.user.username}
         </span>
       }
+      {
+        login ?
 
-      <Login
-        handleSubmit={getUser}
-        type={true}
+          <Login
+            handleSubmit={getUser}
+            type={true}
+            setSwitch={setLogin}
+            switchval={login}
 
-      />
+          /> : <span onClick={() => {
+            setLogin(!login)
+          }}>Login</span>
+      }
 
-      {/* <SignUp
-        handleSubmit={signupUser}
-      /> */}
+      {
+        signin ?
 
-      <Login
-        handleSubmit={signupUser}
-        type={false}
-      />
-
+          <Login
+            handleSubmit={signupUser}
+            type={false}
+            setSwitch={setSignin}
+            switchval={signin}
+          /> : <span onClick={() => {
+            setSignin(!signin)
+          }}>Sign In</span>
+          }
     </nav>
   )
 }

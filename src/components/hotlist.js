@@ -1,6 +1,7 @@
 import React, {useState, useEffect,} from 'react'
 import {BASE_URL}  from '../constants'
 import GameForm from './gameform'
+import Slider from './imageSlider/slider'
 
 const HotList = (props) => {
 
@@ -22,12 +23,18 @@ const HotList = (props) => {
     // .then(res => setGame([json, ...game]))
     // .then(res => console.log(json))
     .catch(err => console.error(err))
-
   }
-
-
   return (
     <>
+      {
+        hotlist.items &&
+        <>
+          <Slider
+            images={hotlist.items.item}
+          />
+        </>
+      }
+
       {
         hotlist.items ?
           hotlist.items.item.map((ele, index) => {
@@ -38,12 +45,11 @@ const HotList = (props) => {
                   setShowForm(!showForm)
                 }}>
                   <img src={ele.thumbnail.value} alt={ele.name.value}/>
+                  <span>Rank: {ele.rank}</span>
                 </div>
 
                 {
                   showForm &&
-
-
                   cgame.id === ele.id &&
                   <GameForm
                     handleSubmit={addGame}
@@ -52,15 +58,12 @@ const HotList = (props) => {
                     slist={slist}
                     list={list}
                     setList={setList}
-
                   />
-
                 }
               </>
             )
           }):''
       }
-      
     </>
   )
 }
