@@ -25,7 +25,7 @@ const Main = () => {
     games &&
     games.geeklist.item.map((ele, index) => {
       return (
-        <article  key={index}>
+        <article key={index}>
           <Game
             name={ele.objectname}
             lookup={ele.objectid}

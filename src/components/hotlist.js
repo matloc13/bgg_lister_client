@@ -1,5 +1,5 @@
 import React, {useState, useEffect,} from 'react'
-import {BASE_URL}  from '../constants';
+import {BASE_URL}  from '../constants'
 import GameForm from './gameform'
 
 const HotList = (props) => {
@@ -44,7 +44,7 @@ const HotList = (props) => {
                   showForm &&
 
 
-                    cgame.id === ele.id &&
+                  cgame.id === ele.id &&
                   <GameForm
                     handleSubmit={addGame}
                     game={ele}
@@ -60,8 +60,7 @@ const HotList = (props) => {
             )
           }):''
       }
-
-
+      
     </>
   )
 }

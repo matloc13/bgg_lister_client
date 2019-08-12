@@ -1,27 +1,37 @@
-import React, { useState, useEffect, } from 'react'
-import { BASE_URL } from '../constants';
+import React, { useState, useEffect, useContext, } from 'react'
+import UserContext from '../context/usercontext'
+import { BASE_URL } from '../constants'
 import Input  from './input';
 
 const GameForm = (props) => {
 
-const {handleSubmit, uid, game, slist, list, setList, } = props
+const user = useContext(UserContext)
+
+console.log(user)
+
+const {handleSubmit, game, slist, list, setList, } = props
 
 const[inputs, setInputs] = useState({
   name: game.name.value,
   img: game.thumbnail.value,
   bggid: game.id,
-  listname: ''
+
 })
+const [option, setOption] = useState()
 
 const [lid, setLid] = useState()
 
 useEffect(() => {
-  getLists()
+  getLists(user.user.id)
   console.log(list)
 },[])
 
-const getLists = (uid) => {
-  fetch(`${BASE_URL}/users/${uid}/listnames`)
+useEffect(() => {
+  console.log(option);
+},[option])
+
+const getLists = () => {
+  fetch(`${BASE_URL}/users/${user.user.id}/listnames`)
   .then(res => res.json())
   .then(json => setList(json))
   .catch(err => console.error(err))
@@ -33,17 +43,18 @@ const handleChange = (event) => {
 
 const gameSubmit = (event) => {
   event.preventDefault()
+  setLid(inputs.lists)
   const fi = {
     name: inputs.name,
     img: inputs.img,
     bggid: inputs.bggid
   }
-  const lid = inputs.lists
+
 
   // if (game) {
   //   fi.id = game.id
   // }
-  handleSubmit(event, fi, uid, inputs.listname,)
+  handleSubmit(event, fi, user.user.id, inputs.lists,)
   // setInputs({
   //   name: '',
   //   img: '',
@@ -90,15 +101,15 @@ const gameSubmit = (event) => {
         />
       </form>
 
-      <select name="lists" autoFocus form={"gameForm"} onChange={handleChange}>
+      <select name="lists" autoFocus form={"gameForm"}>
         {
 
           list.map((ele) => {
             return (
               <option value={ele.id} key={ele.id}>{ele.title}</option>
-            )
-          })
-        }
+              )
+            })
+            }
 
 
     </select>

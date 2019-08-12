@@ -1,14 +1,17 @@
-import React, { useState, useEffect,} from 'react'
+import React, { useState, useEffect, useContext,} from 'react'
 import { BASE_URL } from '../constants'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import UserContext from '../context/usercontext';
 import ListForm from './listform';
 import ListTitle from './listtitle'
 import List from './list'
 
 // props
 const Lists = (props) => {
+  const user = useContext(UserContext)
+  const uid = user.user.id
 
-  const { uid, list, setList, slist, setSlist, } = props
+  const { list, setList, slist, setSlist, } = props
 // state
   const [showForm, setShowForm] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
@@ -95,6 +98,7 @@ const Lists = (props) => {
     }
     {
       showUpdate &&
+        // sList.id === list.id
       <>
         <ListForm
           list={slist}
@@ -109,7 +113,7 @@ const Lists = (props) => {
   </div>
 
   <div className={"listContainer"}>
-    {  list && list.map((ele) => {
+    {  list ? list.map((ele) => {
       return (
 
         <ListTitle
@@ -127,7 +131,7 @@ const Lists = (props) => {
           updateList={updateList}
         />
       )
-    })
+    }):''
     }
 
   </div>

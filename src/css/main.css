@@ -1,4 +1,10 @@
+* {
+  border: 1px solid gold; }
+
 .App {
-  text-align: center; }
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto); }
 
 /*# sourceMappingURL=main.css.map */
