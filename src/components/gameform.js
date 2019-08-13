@@ -55,6 +55,15 @@ const handleChange = (event) => {
       <form onSubmit={gameSubmit} id={"gameForm"}>
         <fieldset>
           <label htmlFor="lists">List</label>
+
+          <Select
+            name={"lists"}
+            user={user.user.id}
+            slist={slist}
+            setList={setList}
+            list={list}
+          />
+
           <select name="lists" autoFocus form={"gameForm"}
             onChange={()=> setOption()} >
             {

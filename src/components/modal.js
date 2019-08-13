@@ -14,8 +14,7 @@ const Modal = (props) => {
         <Game
           lookup={lookup}
         />
-
-        {/* {lookup} */}
+        
       </div>
     </div>
   )

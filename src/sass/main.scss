@@ -4,6 +4,7 @@
 // .hidden {
 //   display: none;
 // }
+$boardgameblue: rgb(63, 58, 96);
 @import url('https://fonts.googleapis.com/css?family=DM+Serif+Text|Lora:400,700&display=swap');
 
 .clearfix:after {
@@ -32,7 +33,7 @@
   place-items: center;
   grid-gap: 1%;
   font-family: 'DM Serif Text', serif;
-  background-color: blue;
+  background-color: $boardgameblue;
   grid-area: nav;
   color: gold;
 }
