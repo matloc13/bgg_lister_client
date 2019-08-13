@@ -39,7 +39,7 @@ const Nav = (props) => {
   }
 
   return (
-    <nav className={"navbar"}>
+    <nav className={"navbar clearfix"}>
       <span onClick={() => {
         toggle()
       }}>

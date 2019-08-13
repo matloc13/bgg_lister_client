@@ -2,7 +2,7 @@ import React from 'react';
 
 const Slide = (props) => {
 
-  const { img, } = props
+  const { img, cIndex, } = props
 //   const styles = {
 //   backgroundImage: `url(${img.value})`,
 //   backgroundSize: `cover`,
@@ -19,7 +19,7 @@ const Slide = (props) => {
       //   <img src={img.value} alt=""/>
       // </div>
       <>
-        <img src={img.value} alt="" className={"slide"}/>
+        <img src={img.value} alt="" className={`slide hidden slide${cIndex}`}/>
       </>
 
   )

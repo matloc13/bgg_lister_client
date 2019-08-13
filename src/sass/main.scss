@@ -1,12 +1,26 @@
-* {
-  border: 1px solid gold;
+// * {
+//   border: 1px solid gold;
+// }
+// .hidden {
+//   display: none;
+// }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 
 .App {
   text-align: center;
   // display: grid;
-  // grid-template-columns: 1fr;
-  // grid-template-rows: repeat(auto);
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-rows: 1fr 3fr 1fr;
+  // // grid-template-rows: repeat(auto);
+  // grid-template-areas: "nav nav nav" "body body body" "footer footer footer";
 }
 
 .navbar {
@@ -16,6 +30,9 @@
   height: 10vh;
   place-items: center;
   grid-gap: 1%;
+  // position: fixed;
+  background-color: blue;
+  grid-area: nav;
 }
 
 .dropNav {
@@ -33,11 +50,11 @@
 }
 
 .slider {
-  width: 60%;
+  width: 80%;
   margin: auto;
   height: 150px;
   // overflow: hidden;
-  // position: relative;
+  position: relative;
 }
 
 .sliderWrapper {
@@ -46,18 +63,54 @@
   // flex-wrap: nowrap;
   // display: grid;
   // grid-template-columns: repeat(100, 1fr);
-  position: relative;
+  // position: relative;
   overflow: inherit;
 }
 
 .slide {
-  margin: 0 30%;
+  margin: 0 20%;
   // display: inline-block;
 }
 
 .rightArrow {
   position: absolute;
   right: 0;
+  top: 30%;
   z-index: 3;
   color: red;
+}
+
+.leftArrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  color: red;
+}
+
+.modal {
+  display: block;
+  background-color: rgba(0,0,0,.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+}
+
+.modal-box {
+  transition: opacity 2s;
+  background-color: ghostwhite;
+  opacity: 1;
+  width: 80vw;
+  // height: 100vh;
+  position: relative;
+  border: 2px solid teal;
+  border-radius: 20px;
+  margin: 1% auto;
+  padding: 2%;
+  line-height: 120%;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  /* font-family: 'Arial'; */
 }

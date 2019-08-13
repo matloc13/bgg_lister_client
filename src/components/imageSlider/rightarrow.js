@@ -7,7 +7,7 @@ const { nextSlide, } = props
   return (
     <div className="rightArrow" onClick={()=> nextSlide()}>
 
-      >
+      {/* > */}
     </div>
   )
 }

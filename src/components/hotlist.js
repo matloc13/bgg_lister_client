@@ -1,6 +1,7 @@
 import React, {useState, useEffect,} from 'react'
 import {BASE_URL}  from '../constants'
 import GameForm from './gameform'
+import Modal from './modal';
 import Slider from './imageSlider/slider'
 
 const HotList = (props) => {
@@ -9,6 +10,7 @@ const HotList = (props) => {
 
   const [cgame, setCGame] = useState()
   const [showForm, setShowForm] = useState(false)
+  const [modal, setModal] = useState(false)
 
   const addGame = (event, game, uid, lid) => {
     fetch(`${BASE_URL}/users/${uid}/listnames/${lid}/games`, {
@@ -26,26 +28,33 @@ const HotList = (props) => {
   }
   return (
     <>
-      {
+      {/* {
         hotlist.items &&
         <>
           <Slider
-            images={hotlist.items.item}
+        images={hotlist.items.item}
           />
         </>
-      }
+      } */}
 
       {
         hotlist.items ?
           hotlist.items.item.map((ele, index) => {
             return (
               <>
-                <div key={index} onClick={() => {
-                  setCGame(ele)
-                  setShowForm(!showForm)
-                }}>
-                  <img src={ele.thumbnail.value} alt={ele.name.value}/>
-                  <span>Rank: {ele.rank}</span>
+                <div
+                  key={index}
+                  className={"hotlistContainer"}
+                  onClick={() => {
+                    setCGame(ele)
+                    setShowForm(!showForm)
+                  }}>
+                  <img
+                    src={ele.thumbnail.value} alt={ele.name.value}
+                  />
+                  <span onClick={() => {
+                    setModal(!modal)
+                  }}>Rank: {ele.rank}</span>
                 </div>
 
                 {
@@ -63,6 +72,15 @@ const HotList = (props) => {
               </>
             )
           }):''
+      }
+      {
+        modal &&
+        <Modal
+          lookup={cgame.id}
+
+          modal={modal}
+          setModal={setModal}
+        />
       }
     </>
   )
