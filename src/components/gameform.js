@@ -15,10 +15,8 @@ const[inputs, setInputs] = useState({
   name: game.name.value,
   img: game.thumbnail.value,
   bggid: game.id,
-
 })
 const [option, setOption] = useState()
-
 const [lid, setLid] = useState()
 
 useEffect(() => {
@@ -37,10 +35,6 @@ const getLists = () => {
   .catch(err => console.error(err))
 }
 
-const handleChange = (event) => {
-  setInputs({...inputs, [event.target.name]: event.target.value})
-}
-
 const gameSubmit = (event) => {
   event.preventDefault()
   setLid(inputs.lists)
@@ -49,40 +43,29 @@ const gameSubmit = (event) => {
     img: inputs.img,
     bggid: inputs.bggid
   }
-
-
-  // if (game) {
-  //   fi.id = game.id
-  // }
   handleSubmit(event, fi, user.user.id, inputs.lists,)
-  // setInputs({
-  //   name: '',
-  //   img: '',
-  //   bggid: ''
-  // })
 }
 
-// const optionsVar = {
-//   list.map((ele) => {
-//     return (
-//       <option value={ele.id} key={ele.id}>{ele.title}</option>
-//     )
-//   })
-// }
-//
-
-
-
+const handleChange = (event) => {
+  setInputs({...inputs, [event.target.name]: event.target.value})
+}
 
   return (
     <>
       <form onSubmit={gameSubmit} id={"gameForm"}>
         <fieldset>
           <label htmlFor="lists">List</label>
-          {/* <select name="lists" autoFocus form={"gameForm"} value={option}
-            onChange={()=> setOption()} options={optionsVar}>
-
-          </select> */}
+          <select name="lists" autoFocus form={"gameForm"}
+            onChange={()=> setOption()} >
+            {
+              list.map((ele) => {
+                return (
+                  ele.user_id === user.user.id &&
+                    <option value={ele.id} key={ele.id}>{ele.title}</option>
+                )
+              })
+            }
+          </select>
 
           <input
             type={"hidden"}
@@ -105,8 +88,8 @@ const gameSubmit = (event) => {
             type={"submit"}
             value={"add game"}
           />
-
         </fieldset>
+
       </form>
 
 

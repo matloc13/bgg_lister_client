@@ -69,7 +69,7 @@ const Game = (props) => {
 
             {
               showDesc &&
-              <p>{currentGame.items.item.description}</p>
+              <p className={"description"}>{currentGame.items.item.description.replace(/&#10;/g,' ').replace(/&rsquo;/g, '\'').replace(/&ndash;/g, ':').replace(/&mdash;/g, ',').replace(/&quot;/g,'"')}</p>
             }
           </>
         :''

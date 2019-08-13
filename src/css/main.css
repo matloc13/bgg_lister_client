@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Serif+Text|Lora:400,700&display=swap");
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -16,8 +17,10 @@
   height: 10vh;
   place-items: center;
   grid-gap: 1%;
+  font-family: 'DM Serif Text', serif;
   background-color: blue;
-  grid-area: nav; }
+  grid-area: nav;
+  color: gold; }
 
 .dropNav {
   display: flex;
@@ -26,7 +29,8 @@
   z-index: 2; }
   .dropNav span {
     text-align: right;
-    padding: 3%; }
+    padding: 3%;
+    font-family: 'Lora', serif; }
 
 .slider {
   width: 80%;
@@ -56,6 +60,7 @@
   color: red; }
 
 .modal {
+  font-family: 'Lora', serif;
   display: block;
   background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
@@ -64,19 +69,23 @@
   height: 100%;
   width: 100%;
   z-index: 3; }
+  .modal .modal-box {
+    transition: opacity 2s;
+    background-color: ghostwhite;
+    opacity: 1;
+    width: 80vw;
+    position: relative;
+    border-radius: 2%;
+    margin: 1% auto;
+    padding: 2%;
+    line-height: 120%;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    /* font-family: 'Arial'; */
+    overflow: auto; }
 
-.modal-box {
-  transition: opacity 2s;
-  background-color: ghostwhite;
-  opacity: 1;
-  width: 80vw;
-  position: relative;
-  border: 2px solid teal;
-  border-radius: 20px;
-  margin: 1% auto;
-  padding: 2%;
-  line-height: 120%;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-  /* font-family: 'Arial'; */ }
+.description {
+  overflow: auto;
+  line-height: 1.4em;
+  padding: 4%; }
 
 /*# sourceMappingURL=main.css.map */
