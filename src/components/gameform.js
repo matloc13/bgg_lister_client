@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, } from 'react'
 import UserContext from '../context/usercontext'
+import Select from './select';
 import { BASE_URL } from '../constants'
 import Input  from './input';
 
@@ -56,13 +57,13 @@ const handleChange = (event) => {
         <fieldset>
           <label htmlFor="lists">List</label>
 
-          <Select
+          {/* <Select
             name={"lists"}
             user={user.user.id}
             slist={slist}
             setList={setList}
             list={list}
-          />
+          /> */}
 
           <select name="lists" autoFocus form={"gameForm"}
             onChange={()=> setOption()} >
