@@ -2,7 +2,7 @@ import React, {useState, useEffect,} from 'react'
 import {BASE_URL}  from '../constants'
 import GameForm from './gameform'
 import Modal from './modal';
-import Slider from './imageSlider/slider'
+// import Slider from './imageSlider/slider'
 
 const HotList = (props) => {
 

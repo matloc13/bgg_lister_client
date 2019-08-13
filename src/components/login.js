@@ -1,9 +1,9 @@
-import React, {useState, useEffect,} from 'react'
+import React, {useState, } from 'react'
 import Input from './input';
 
 const Login = (props) => {
 
-  const { user, setUser, handleSubmit,type, setSwitch, switchval, } = props
+  const {  handleSubmit,type, setSwitch, switchval, } = props
   const [inputs, setInputs] = useState({username: '', password: ''}
   )
 
@@ -35,19 +35,18 @@ const userSubmit = (event) => {
           value={inputs.username}
           handleChange={handleChange}
         />
+
         <Input
           name={"password"}
           type={"text"}
           value={inputs.password}
           handleChange={handleChange}
-
         />
 
-        
         <input
           type="submit"
           value={type? "Login": "Create User"}
-          onClick={() => setSwitch(!switchval)}
+          // onClick={() => setSwitch(!switchval)}
         />
       </fieldset>
     </form>
