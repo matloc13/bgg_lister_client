@@ -9,8 +9,8 @@ const ListTitle = (props) => {
     <>
       {
         list.user_id === uid &&
-        <div key={lid}>
-          
+        <div key={lid} className={"listTitleLinkContainer"}>
+
           <Link
             to="/listsgame"
             onClick={() => {
@@ -22,7 +22,7 @@ const ListTitle = (props) => {
             onClick={() => {
               setShowEdit(!showEdit)
             }}>{
-              showEdit ? 'close':'edit'}
+              showEdit ? 'close':'edit title'}
           </span>
           {
             showEdit &&
@@ -37,7 +37,7 @@ const ListTitle = (props) => {
               <span onClick={() => {
                 deleteList(list, uid, lid)
               }}>
-              X</span>
+              delete</span>
 
             </>
           }

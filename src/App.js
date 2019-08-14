@@ -35,7 +35,7 @@ function App() {
 
     if (localStorage.getItem("user") !== null) {
       console.log('hi');
-       // setUser(JSON.parse(localStorage.getItem("user")))
+       setUser(JSON.parse(localStorage.getItem("user")))
     }
 
 

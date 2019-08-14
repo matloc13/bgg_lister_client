@@ -19,7 +19,7 @@ h2 {
 
 .navbar {
   display: grid;
-  grid-template-columns: 1fr 3fr 100px 100px;
+  grid-template-columns: 1fr 3fr 150px 150px;
   grid-template-areas: "logo space user logout";
   width: 100%;
   height: 10vh;
@@ -51,12 +51,12 @@ h2 {
   z-index: 2; }
   .dropNav span {
     text-align: right;
-    padding: 3%; }
+    padding: 3%;
+    background-color: #ff9766; }
   .dropNav .link {
     font-family: 'Lora', serif;
     text-decoration: none;
-    color: white;
-    background-color: #ffb999; }
+    color: white; }
 
 .slider {
   width: 80%;
@@ -88,18 +88,17 @@ h2 {
 .modal {
   font-family: 'Lora', serif;
   display: block;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
-  z-index: 3; }
+  width: 100%; }
   .modal .modal-box {
     transition: opacity 2s;
     background-color: #f7faf8;
     opacity: 1;
-    width: 80vw;
+    height: 100vh;
+    width: 100%;
     position: relative;
     border-radius: 2%;
     margin: 1% auto;
@@ -128,17 +127,25 @@ h2 {
 
 .hotlistContainer {
   width: 90%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr; }
   .hotlistContainer .hotlistItem {
     display: grid;
     grid-template-columns: 1fr 60px 60px;
-    width: minmax(350px, 30%);
+    grid-column: 1/2;
+    width: 350px;
     padding: 3%;
     border-radius: 2%;
     box-shadow: 1px 3px 3px rgba(255, 81, 0, 0.3);
-    margin: 1; }
+    margin: 1%; }
     .hotlistContainer .hotlistItem span {
       display: block; }
+
+.modalContainer {
+  grid-column: 2/3;
+  grid-row: 1/50;
+  position: relative; }
 
 .gamelist {
   margin: 1% auto;
@@ -152,6 +159,23 @@ h2 {
     background-color: #b9e05d; }
     .gamelist .gamelistItem:nth-child(3n) {
       background-color: #92e05e; }
+
+.listsContainer {
+  height: 80vh; }
+  .listsContainer .listContainer {
+    padding: 0 10%;
+    margin: 1%;
+    text-align: left; }
+
+.listTitleLinkContainer h3 {
+  color: #3f3a60;
+  text-decoration: none; }
+.listTitleLinkContainer Link {
+  text-decoration: none; }
+.listTitleLinkContainer span {
+  margin: 0 auto;
+  padding: 1%;
+  color: #ff5100; }
 
 footer {
   background-color: #3f3a60;

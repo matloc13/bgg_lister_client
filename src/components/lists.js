@@ -79,7 +79,7 @@ const Lists = (props) => {
   }
 
   return (
-<>
+<div className={"listsContainer"}>
   <div>
     <button onClick={() => {
       setShowForm(!showForm)
@@ -139,7 +139,7 @@ const Lists = (props) => {
     }
 
   </div>
-</>
+</div>
   )
 }
 
