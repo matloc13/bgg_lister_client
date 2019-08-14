@@ -7,14 +7,15 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import Nav from './components/nav'
 import DropMenu from './components/dropmenu'
 import Main from './components/main'
-import HotList from './components/hotlist';
+import HotList from './components/hotlist'
 import Lists from './components/lists'
+import List from './components/list'
 import Footer from './components/footer'
 import './css/main.css'
 
 
 toast.configure({
-  autoClose: 8000,
+  autoClose: 6000,
   draggable: false
 })
 
@@ -28,16 +29,15 @@ function App() {
   const [slist, setSlist] = useState({})
   const [dropMenuShow, setDropMenuShow] = useState(false)
 
-
-
   useEffect(() => {
-    console.log('did load');
+    console.log('did load')
     getHotList()
 
-      setUser(JSON.parse(localStorage.getItem("user")))
-  if (user){
-      notify(user.user.username)
-  }
+    if (localStorage.getItem("user") !== null) {
+      console.log('hi');
+       setUser(JSON.parse(localStorage.getItem("user")))
+    }
+
 
     return () => {
       console.log('clear hot list');
@@ -45,10 +45,10 @@ function App() {
   },[])
 
 useEffect(() => {
-  console.log(user);
+  // console.log(user);
   localStorage.setItem("user", JSON.stringify(user))
   if (user){
-      notify(`welcome ${user.user.username}`)
+      notify(`Welcome ${user.user.username}`)
   }
 },[user])
 
@@ -56,7 +56,7 @@ useEffect(() => {
     fetch(`${BASE_URL}/hotlists`)
     .then(res => res.json())
     .then(json => setHotlist(json))
-    .then(notify('welcome to Bgg lister!'))
+    .then(notify('welcome to Bgg Lister!'))
     .catch(err => console.error(err))
   }
 
@@ -79,7 +79,7 @@ useEffect(() => {
             user={user}
             setUser={setUser}
           />
-          {/* <ToastContainer /> */}
+
           {
             dropMenuShow &&
             <DropMenu />
@@ -116,6 +116,15 @@ useEffect(() => {
                   />}
               />
             }
+
+            <Route
+              path="/listsgame"
+              render={(props) =>
+                <List {...props}
+                  slist={slist}
+                />}
+            />
+                  }
           </Switch>
 
           <Footer />

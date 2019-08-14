@@ -1,7 +1,9 @@
 import React, { useState, } from 'react'
-import { BASE_URL } from '../constants';
-import Login from './login';
-import SignUp  from './signup';
+import { Link } from 'react-router-dom'
+import { BASE_URL } from '../constants'
+import Login from './login'
+import SignUp  from './signup'
+
 
 const Nav = (props) => {
 
@@ -41,43 +43,51 @@ const Nav = (props) => {
   return (
     <nav
       className={"navbar clearfix"}>
-      <span onClick={() => {
+      <h3 onClick={() => {
         toggle()
       }}>
-        menu
-      </span>
+        BGG-lister
+      </h3>
       {
         user &&
         <span>
           {user.user.username}
         </span>
       }
-      {
-        login ?
+      {user ?
+        <Link to="/"
+          onClick={() => {
+            localStorage.clear()
+          }}>Logout</Link>:
+        <>
+          {
+            login ?
 
-          <Login
-            handleSubmit={getUser}
-            type={true}
-            setSwitch={setLogin}
-            switchval={login}
+              <Login
+                handleSubmit={getUser}
+                type={true}
+                setSwitch={setLogin}
+                switchval={login}
 
-          /> : <span onClick={() => {
-            setLogin(!login)
-          }}>Login</span>
-      }
-
-      {
-        signin ?
-
-          <Login
-            handleSubmit={signupUser}
-            type={false}
-            setSwitch={setSignin}
-            switchval={signin}
-          /> : <span onClick={() => {
-            setSignin(!signin)
-          }}>Sign In</span>
+              /> : <span onClick={() => {
+                setLogin(!login)
+              }}>Login</span>
           }
+
+          {
+            signin ?
+
+              <Login
+                handleSubmit={signupUser}
+                type={false}
+                setSwitch={setSignin}
+                switchval={signin}
+              /> : <span onClick={() => {
+                setSignin(!signin)
+              }}>Sign In</span>
+          }
+        </>
+      }
     </nav>
   )
 }

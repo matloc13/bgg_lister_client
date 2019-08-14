@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext, } from 'react'
 import UserContext from '../context/usercontext'
-import Select from './select';
+// import Select from './select'
 import { BASE_URL } from '../constants'
-import Input  from './input';
+import { toast } from 'react-toastify'
+import Select from 'react-select'
+import Input  from './input'
 
 const GameForm = (props) => {
 
@@ -12,12 +14,20 @@ console.log(user)
 
 const {handleSubmit, game, slist, list, setList, } = props
 
+const options =
+  list.map((ele) => {
+    return (
+      ele.user_id === user.user.id &&
+      { value: ele.id, label: ele.title }
+  )})
+
+
 const[inputs, setInputs] = useState({
   name: game.name.value,
   img: game.thumbnail.value,
   bggid: game.id,
 })
-const [option, setOption] = useState()
+const [selectedOption, setSelectedOption] = useState(null)
 const [lid, setLid] = useState()
 
 useEffect(() => {
@@ -26,8 +36,10 @@ useEffect(() => {
 },[])
 
 useEffect(() => {
-  console.log(option);
-},[option])
+  console.log(selectedOption)
+  console.log(options);
+},[selectedOption])
+
 
 const getLists = () => {
   fetch(`${BASE_URL}/users/${user.user.id}/listnames`)
@@ -38,17 +50,25 @@ const getLists = () => {
 
 const gameSubmit = (event) => {
   event.preventDefault()
-  setLid(inputs.lists)
+  notify(`item added to ${selectedOption.label}`)
   const fi = {
     name: inputs.name,
     img: inputs.img,
     bggid: inputs.bggid
   }
-  handleSubmit(event, fi, user.user.id, inputs.lists,)
+  handleSubmit(event, fi, user.user.id, selectedOption.value)
 }
 
 const handleChange = (event) => {
   setInputs({...inputs, [event.target.name]: event.target.value})
+}
+
+const handleSelect = (selectedOption) => {
+  setSelectedOption(selectedOption)
+}
+
+const notify = (item) => {
+  toast(`${item}`)
 }
 
   return (
@@ -65,17 +85,23 @@ const handleChange = (event) => {
             list={list}
           /> */}
 
-          <select name="lists" autoFocus form={"gameForm"}
-            onChange={()=> setOption()} >
+          {/* <select name="lists" autoFocus form={"gameForm"}
+            onChange={()=> setSelectedOption()} >
             {
               list.map((ele) => {
-                return (
-                  ele.user_id === user.user.id &&
-                    <option value={ele.id} key={ele.id}>{ele.title}</option>
-                )
+            return (
+            ele.user_id === user.user.id &&
+            <option value={ele.id} key={ele.id}>{ele.title}</option>
+            )
               })
             }
-          </select>
+          </select> */}
+
+          <Select
+            options={options}
+            onChange={handleSelect}
+            value={selectedOption}
+          />
 
           <input
             type={"hidden"}

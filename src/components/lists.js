@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext,} from 'react'
 import { BASE_URL } from '../constants'
-import { Link } from 'react-router-dom'
 import UserContext from '../context/usercontext';
 import ListForm from './listform';
 import ListTitle from './listtitle'
-import List from './list'
+
 
 // props
 const Lists = (props) => {
@@ -21,8 +20,11 @@ const Lists = (props) => {
 // lifecycle hooks
   useEffect(() => {
     getLists()
-    // console.log(list);
   },[])
+
+  useEffect(() => {
+    console.log(list);
+  })
 
 // requests
   const getLists = (uid) => {
@@ -130,8 +132,9 @@ const Lists = (props) => {
             deleteList={deleteList}
             updateList={updateList}
           />
+
         </div>
-          )
+      )
     }):''
     }
 
