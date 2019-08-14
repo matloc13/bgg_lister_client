@@ -6,6 +6,7 @@
 // }
 $boardgameblue: rgb(63, 58, 96);
 $boardgameorange: rgb(255, 81, 0);
+$backgroundWhite: darken(rgb(250, 252, 251), 1%);
 @import url('https://fonts.googleapis.com/css?family=DM+Serif+Text|Lora:400,700&display=swap');
 
 .clearfix:after {
@@ -26,9 +27,18 @@ $boardgameorange: rgb(255, 81, 0);
   // grid-template-areas: "nav nav nav" "body body body" "footer footer footer";
 }
 
+h2 {
+  color: $boardgameblue;
+}
+
+.link {
+  color: $boardgameorange;
+}
+
 .navbar {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 100px 100px;
+  grid-template-areas: "logo space user logout";
   width: 100%;
   height: 10vh;
   place-items: center;
@@ -37,6 +47,32 @@ $boardgameorange: rgb(255, 81, 0);
   background-color: $boardgameblue;
   grid-area: nav;
   color: $boardgameorange;
+
+  h1 {
+    grid-area: logo;
+  }
+
+  b {
+    grid-area: space;
+  }
+
+  .logout {
+    grid-area: logout;
+    text-decoration: none;
+  }
+
+  .user {
+    grid-area: user;
+  }
+
+  span {
+    font-weight: 400;
+    color: white;
+
+    &:hover {
+      color: $boardgameorange;
+    }
+  }
 }
 
 .dropNav {
@@ -50,7 +86,14 @@ $boardgameorange: rgb(255, 81, 0);
     // margin: 0 auto;
     text-align: right;
     padding: 3%;
+    background-color: $boardgameorange;
+  }
+
+  .link {
     font-family: 'Lora', serif;
+    text-decoration: none;
+    color: white;
+    background-color: $boardgameorange;
   }
 }
 
@@ -64,17 +107,11 @@ $boardgameorange: rgb(255, 81, 0);
 
 .sliderWrapper {
   display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  // display: grid;
-  // grid-template-columns: repeat(100, 1fr);
-  // position: relative;
   overflow: inherit;
 }
 
 .slide {
   margin: 0 20%;
-  // display: inline-block;
 }
 
 .rightArrow {
@@ -106,7 +143,7 @@ $boardgameorange: rgb(255, 81, 0);
 
   .modal-box {
     transition: opacity 2s;
-    background-color: ghostwhite;
+    background-color: $backgroundWhite;
     opacity: 1;
     width: 80vw;
     // height: 100vh;
@@ -122,8 +159,54 @@ $boardgameorange: rgb(255, 81, 0);
   }
 }
 
+.gameContainer {
+  border-radius: 1%;
+  box-shadow: 1px 10px 5px rgba(63, 58, 96, 60%);
+  margin: 3% auto;
+  width: 80%;
+  background-color: ghostwhite;
+  padding: 1%;
+
+  a {
+    color: $boardgameblue;
+    text-decoration: none;
+    box-shadow: 0 1px rgba(255, 81, 0, 30%);
+  }
+}
+
 .description {
   overflow: auto;
   line-height: 1.4em;
   padding: 4%;
+}
+
+.hotlistContainer {
+  width: 90%;
+  margin: 0 auto;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  .hotlistItem {
+    display: grid;
+    grid-template-columns: 1fr 60px 60px;
+    width: 30%;
+    padding: 3%;
+    border-radius: 3%;
+    box-shadow: 1px 3px 3px rgba(255, 81, 0, 30%);
+    margin: 1%;
+
+    span {
+      display: block;
+    }
+  }
+}
+
+footer {
+  background-color: $boardgameblue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 10vh;
+  align-items: center;
+  color: $boardgameorange;
+  font-size: 0.9em;
 }

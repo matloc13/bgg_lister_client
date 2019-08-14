@@ -27,7 +27,7 @@ const HotList = (props) => {
     .catch(err => console.error(err))
   }
   return (
-    <>
+    <div className={"hotlistContainer"}>
       {/* {
         hotlist.items &&
         <>
@@ -46,17 +46,24 @@ const HotList = (props) => {
               <>
                 <div
                   key={index}
-                  className={"hotlistContainer"}
-                  onClick={() => {
-                    setCGame(ele)
-                    setShowForm(!showForm)
-                  }}>
+                  className={"hotlistItem"}>
                   <img
-                    src={ele.thumbnail.value} alt={ele.name.value}
+                    src={ele.thumbnail.value}
+                    alt={ele.name.value}
+                    onClick={() => {
+                      setCGame(ele)
+                      setModal(!modal)
+                    }}
                   />
                   <span onClick={() => {
-                    setModal(!modal)
+                    setCGame(ele)
                   }}>Rank: {ele.rank}</span>
+                  <span
+                    onClick={() => {
+                      setCGame(ele)
+                      setShowForm(!showForm)
+                    }}
+                  >add</span>
                 </div>
 
                 {
@@ -84,7 +91,7 @@ const HotList = (props) => {
           setModal={setModal}
         />
       }
-    </>
+    </div>
   )
 }
 

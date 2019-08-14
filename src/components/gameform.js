@@ -10,8 +10,6 @@ const GameForm = (props) => {
 
 const user = useContext(UserContext)
 
-console.log(user)
-
 const {handleSubmit, game, slist, list, setList, } = props
 
 const options =
@@ -21,14 +19,12 @@ const options =
       { value: ele.id, label: ele.title }
   )})
 
-
 const[inputs, setInputs] = useState({
   name: game.name.value,
   img: game.thumbnail.value,
   bggid: game.id,
 })
 const [selectedOption, setSelectedOption] = useState(null)
-const [lid, setLid] = useState()
 
 useEffect(() => {
   getLists(user.user.id)
@@ -50,7 +46,7 @@ const getLists = () => {
 
 const gameSubmit = (event) => {
   event.preventDefault()
-  notify(`item added to ${selectedOption.label}`)
+  notify(`${inputs.name} added to ${selectedOption.label}`)
   const fi = {
     name: inputs.name,
     img: inputs.img,
@@ -77,26 +73,6 @@ const notify = (item) => {
         <fieldset>
           <label htmlFor="lists">List</label>
 
-          {/* <Select
-            name={"lists"}
-            user={user.user.id}
-            slist={slist}
-            setList={setList}
-            list={list}
-          /> */}
-
-          {/* <select name="lists" autoFocus form={"gameForm"}
-            onChange={()=> setSelectedOption()} >
-            {
-              list.map((ele) => {
-            return (
-            ele.user_id === user.user.id &&
-            <option value={ele.id} key={ele.id}>{ele.title}</option>
-            )
-              })
-            }
-          </select> */}
-
           <Select
             options={options}
             onChange={handleSelect}
@@ -113,7 +89,6 @@ const notify = (item) => {
             name={"img"}
             value={inputs.img}
             handleChange={handleChange}/>
-
 
           <input
             type={"hidden"}

@@ -26,7 +26,7 @@ const Game = (props) => {
   }
 
   return (
-    <>
+    <div className={"gameContainer"}>
       {
         currentGame ?
           <>
@@ -74,8 +74,8 @@ const Game = (props) => {
           </>
         :''
       }
-      <hr/>
-    </>
+      {/* <hr/> */}
+    </div>
   )
 }
 

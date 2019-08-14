@@ -27,18 +27,20 @@ const List = (props) => {
 
   return (
     <>
-      <h3>{slist.title}</h3>
-      {
-        slist &&
-        gameList &&
-        gameList.map((ele) => {
-          return (
-            slist.id === ele.listname_id &&
+      <div className={"gamelist"}>
+        <h3>{slist.title}</h3>
+        {
+          slist &&
+          gameList &&
+          gameList.map((ele) => {
+            return (
+              slist.id === ele.listname_id &&
 
-            <div>{ele.name}</div>
-          )
-        })
-      }
+                <div>{ele.name}</div>
+            )
+          })
+        }
+      </div>
     </>
   )
 }

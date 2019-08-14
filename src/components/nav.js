@@ -43,22 +43,25 @@ const Nav = (props) => {
   return (
     <nav
       className={"navbar clearfix"}>
-      <h3 onClick={() => {
+      <h1 onClick={() => {
         toggle()
       }}>
         BGG-lister
-      </h3>
+      </h1>
       {
         user &&
         <span>
           {user.user.username}
         </span>
       }
+      <b></b>
       {user ?
         <Link to="/"
+          className={"logout link"}
           onClick={() => {
             localStorage.clear()
-          }}>Logout</Link>:
+          }}
+        >Logout</Link>:
         <>
           {
             login ?
@@ -69,7 +72,9 @@ const Nav = (props) => {
                 setSwitch={setLogin}
                 switchval={login}
 
-              /> : <span onClick={() => {
+              /> : <span
+                className={"user"}
+                onClick={() => {
                 setLogin(!login)
               }}>Login</span>
           }
@@ -82,7 +87,9 @@ const Nav = (props) => {
                 type={false}
                 setSwitch={setSignin}
                 switchval={signin}
-              /> : <span onClick={() => {
+              /> : <span
+                className={"logout"}
+                onClick={() => {
                 setSignin(!signin)
               }}>Sign In</span>
           }
