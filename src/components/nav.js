@@ -60,6 +60,7 @@ const Nav = (props) => {
           className={"logout link"}
           onClick={() => {
             localStorage.clear()
+            window.location.reload(true)
           }}
         >Logout</Link>:
         <>
