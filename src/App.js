@@ -65,7 +65,6 @@ useEffect(() => {
     toast(`${item} `)
   }
 
-
   return (
     <UserProvider value={user}>
       <Router>
