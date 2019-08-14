@@ -36,7 +36,7 @@ const List = (props) => {
             return (
               slist.id === ele.listname_id &&
 
-                <div>{ele.name}</div>
+                <div className={"gamelistItem"}>{ele.name}</div>
             )
           })
         }

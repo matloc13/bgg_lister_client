@@ -82,15 +82,17 @@ const HotList = (props) => {
             )
           }):''
       }
-      {
-        modal &&
-        <Modal
-          lookup={cgame.id}
+      <div className={"modalContainer"}>
+        {
+          modal &&
+          <Modal
+            lookup={cgame.id}
 
-          modal={modal}
-          setModal={setModal}
-        />
-      }
+            modal={modal}
+            setModal={setModal}
+          />
+        }
+      </div>
     </div>
   )
 }

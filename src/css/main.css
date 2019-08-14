@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=DM+Serif+Text|Lora:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -24,7 +25,7 @@ h2 {
   height: 10vh;
   place-items: center;
   grid-gap: 1%;
-  font-family: 'Lora', serif;
+  font-family: 'Bree Serif', serif;
   background-color: #3f3a60;
   grid-area: nav;
   color: #ff5100; }
@@ -50,13 +51,12 @@ h2 {
   z-index: 2; }
   .dropNav span {
     text-align: right;
-    padding: 3%;
-    background-color: #ff5100; }
+    padding: 3%; }
   .dropNav .link {
     font-family: 'Lora', serif;
     text-decoration: none;
     color: white;
-    background-color: #ff5100; }
+    background-color: #ffb999; }
 
 .slider {
   width: 80%;
@@ -132,13 +132,26 @@ h2 {
   .hotlistContainer .hotlistItem {
     display: grid;
     grid-template-columns: 1fr 60px 60px;
-    width: 30%;
+    width: minmax(350px, 30%);
     padding: 3%;
-    border-radius: 3%;
+    border-radius: 2%;
     box-shadow: 1px 3px 3px rgba(255, 81, 0, 0.3);
-    margin: 1%; }
+    margin: 1; }
     .hotlistContainer .hotlistItem span {
       display: block; }
+
+.gamelist {
+  margin: 1% auto;
+  padding: 2%;
+  width: 90%;
+  text-align: right;
+  color: #3f3a60;
+  box-shadow: 0 1px 3px rgba(255, 81, 0, 0.3); }
+  .gamelist .gamelistItem {
+    padding: 1%;
+    background-color: #b9e05d; }
+    .gamelist .gamelistItem:nth-child(3n) {
+      background-color: #92e05e; }
 
 footer {
   background-color: #3f3a60;

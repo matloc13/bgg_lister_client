@@ -7,7 +7,10 @@
 $boardgameblue: rgb(63, 58, 96);
 $boardgameorange: rgb(255, 81, 0);
 $backgroundWhite: darken(rgb(250, 252, 251), 1%);
+$green: #92e05e;
+$lightgreen: #b9e05d;
 @import url('https://fonts.googleapis.com/css?family=DM+Serif+Text|Lora:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 
 .clearfix:after {
   visibility: hidden;
@@ -43,7 +46,7 @@ h2 {
   height: 10vh;
   place-items: center;
   grid-gap: 1%;
-  font-family: 'Lora', serif;
+  font-family: 'Bree Serif', serif;
   background-color: $boardgameblue;
   grid-area: nav;
   color: $boardgameorange;
@@ -82,18 +85,16 @@ h2 {
   z-index: 2;
 
   span {
-    // display: block;
-    // margin: 0 auto;
     text-align: right;
     padding: 3%;
-    background-color: $boardgameorange;
+    // background-color: lighten($boardgameorange, 30%);
   }
 
   .link {
     font-family: 'Lora', serif;
     text-decoration: none;
     color: white;
-    background-color: $boardgameorange;
+    background-color: lighten($boardgameorange, 30%);
   }
 }
 
@@ -184,18 +185,37 @@ h2 {
   width: 90%;
   margin: 0 auto;
   // display: grid;
-  // grid-template-columns: 1fr 1fr;
+  // grid-template-columns: 1fr 2fr;
+  // grid-template-areas: "game modal";
   .hotlistItem {
     display: grid;
     grid-template-columns: 1fr 60px 60px;
-    width: 30%;
+    width: minmax(350px, 30%);
     padding: 3%;
-    border-radius: 3%;
+    border-radius: 2%;
     box-shadow: 1px 3px 3px rgba(255, 81, 0, 30%);
-    margin: 1%;
+    margin: 1;
 
     span {
       display: block;
+    }
+  }
+}
+
+.gamelist {
+  margin: 1% auto;
+  padding: 2%;
+  width: 90%;
+  text-align: right;
+  color: $boardgameblue;
+  box-shadow: 0 1px 3px rgba(255, 81, 0, 30%);
+
+  .gamelistItem {
+    padding: 1%;
+    background-color: $lightgreen;
+
+    &:nth-child(3n) {
+      background-color: $green;
     }
   }
 }
