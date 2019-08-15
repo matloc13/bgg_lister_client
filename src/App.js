@@ -34,7 +34,7 @@ function App() {
     getHotList()
     if (localStorage.getItem("user") !== null) {
       console.log('hi');
-       // setUser(JSON.parse(localStorage.getItem("user")))
+       setUser(JSON.parse(localStorage.getItem("user")))
     }
     return () => {
       console.log('clear hot list');
