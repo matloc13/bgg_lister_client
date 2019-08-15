@@ -178,9 +178,7 @@ h2 {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  // grid-gap: 1%;
-  // grid-auto-rows: min-content;
-  // grid-template-areas: "game modal";
+
   .hotlistItem {
     display: grid;
     grid-template-columns: 1fr 60px 60px;

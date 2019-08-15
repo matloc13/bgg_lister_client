@@ -32,21 +32,28 @@ function App() {
   useEffect(() => {
     console.log('did load')
     getHotList()
-    if (localStorage.getItem("user") !== null) {
-      console.log('hi');
-       // setUser(JSON.parse(localStorage.getItem("user")))
+    if (!localStorage.getItem("user")) {
+      console.log('storage empty');
+    } else {
+      console.log('local storage in use');
+      setUser(JSON.parse(window.localStorage.getItem("user")))
+      console.log('item from local');
     }
     return () => {
-      console.log('clear hot list');
+      console.log('clear hot list')
     }
   },[])
 
 useEffect(() => {
-  // console.log(user);
+console.log('trigger user side effect...');
+if (user) {
   localStorage.setItem("user", JSON.stringify(user))
+  console.log('user set');
+}
   if (user){
       notify(`Welcome ${user.user.username}`)
   }
+  return () => localStorage.clear()
 },[user])
 
   const getHotList = () => {

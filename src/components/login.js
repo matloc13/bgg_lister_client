@@ -38,7 +38,7 @@ const userSubmit = (event) => {
 
         <Input
           name={"password"}
-          type={"text"}
+          type={"password"}
           value={inputs.password}
           handleChange={handleChange}
         />

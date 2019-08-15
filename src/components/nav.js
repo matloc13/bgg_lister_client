@@ -26,7 +26,7 @@ const Nav = (props) => {
   }
 
   const getUser = (event, fi) => {
-  console.log(fi)
+  // console.log(fi)
     fetch(`${BASE_URL}/users/login`, {
       body: JSON.stringify(fi),
       method: 'POST',
@@ -76,8 +76,8 @@ const Nav = (props) => {
               /> : <span
                 className={"user"}
                 onClick={() => {
-                setLogin(!login)
-              }}>Login</span>
+                  setLogin(!login)
+                }}>Login</span>
           }
 
           {
@@ -91,8 +91,8 @@ const Nav = (props) => {
               /> : <span
                 className={"logout"}
                 onClick={() => {
-                setSignin(!signin)
-              }}>Sign In</span>
+                  setSignin(!signin)
+                }}>Sign Up</span>
           }
         </>
       }
