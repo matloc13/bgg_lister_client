@@ -36,7 +36,11 @@ function App() {
       console.log('storage empty');
     } else {
       console.log('local storage in use');
-      setUser(JSON.parse(window.localStorage.getItem("user")))
+      try {
+        setUser(JSON.parse(window.localStorage.getItem("user")))
+      }catch (error) {
+        console.error(error)
+      }
       console.log('item from local');
     }
     return () => {
