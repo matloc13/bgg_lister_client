@@ -41,9 +41,6 @@ const ListTitle = (props) => {
 
             </>
           }
-
-
-
         </div>
       }
     </>
