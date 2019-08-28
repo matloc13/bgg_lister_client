@@ -1,10 +1,13 @@
-import React, {useState, useEffect,} from 'react'
+import React, {useState, useEffect, useContext,} from 'react'
 import {BASE_URL}  from '../constants'
+import UserContext from '../context/usercontext'
 import GameForm from './gameform'
 import Modal from './modal';
 // import Slider from './imageSlider/slider'
 
 const HotList = (props) => {
+
+  const user = useContext(UserContext)
 
   const { hotlist, uid, list, slist, setList, } = props
 
@@ -58,12 +61,16 @@ const HotList = (props) => {
                   <span onClick={() => {
                     setCGame(ele)
                   }}>Rank: {ele.rank}</span>
-                  <span
-                    onClick={() => {
-                      setCGame(ele)
-                      setShowForm(!showForm)
-                    }}
-                  >add</span>
+                  {
+                    user &&
+                    <span
+                      onClick={() => {
+                        setCGame(ele)
+                        setShowForm(!showForm)
+                      }}
+                    >add</span>
+                  }
+
                 </div>
 
                 {

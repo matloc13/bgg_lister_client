@@ -23,7 +23,7 @@ toast.configure({
 function App() {
 
   const [user, setUser] = useState()
-  const [username, setUsername] = useState()
+  // const [username, setUsername] = useState()
   const [hotlist, setHotlist] = useState([])
   const [list, setList] = useState([])
   const [slist, setSlist] = useState({})
@@ -111,17 +111,17 @@ if (user) {
                 />}
             />
             {
-              user &&
-              <Route
-                path="/myLists"
-                render={(props) =>
-                  <Lists {...props}
-                    list={list}
-                    setList={setList}
-                    slist={slist}
-                    setSlist={setSlist}
-                  />}
-              />
+              user ?
+                <Route
+                  path="/myLists"
+                  render={(props) =>
+                    <Lists {...props}
+                      list={list}
+                      setList={setList}
+                      slist={slist}
+                      setSlist={setSlist}
+                    />}
+                />: <div className={'listsContainer'}><h3>User must login to create a list</h3></div>
             }
 
             <Route

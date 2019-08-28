@@ -79,67 +79,71 @@ const Lists = (props) => {
   }
 
   return (
-<div className={"listsContainer"}>
-  <div>
-    <button onClick={() => {
-      setShowForm(!showForm)
-    }}>
-      {
-        showForm ?
-          "close"
-        : 'create list'
-      }
 
-    </button>
 
-    {  showForm &&
-      <ListForm
-        handleSubmit={createList}
-        uid={uid}
-      />
-    }
-    {
-      showUpdate &&
-      <>
-        <ListForm
-          list={slist}
-          handleSubmit={updateList}
-        />
-        <span onClick={() => {
+      <div className={"listsContainer"}>
+        <div>
+          <button onClick={() => {
+            setShowForm(!showForm)
+          }}>
+            {
+              showForm ?
+                  "close"
+              : 'create list'
+            }
 
-          setShowUpdate(!showUpdate)
-        }}
-        >close</span>
-      </>
-    }
-  </div>
+          </button>
 
-  <div className={"listContainer"}>
-    {  list ? list.map((ele) => {
-      return (
-        <div key={ele.id} className={'listTitle'}>
-          <ListTitle
-            uid={uid}
-            list={ele}
-            slist={slist}
-            lid={ele.id}
-            title={ele.title}
-            setShowEdit={setShowEdit}
-            showEdit={showEdit}
-            setSlist={setSlist}
-            setShowUpdate={setShowUpdate}
-            showUpdate={showUpdate}
-            deleteList={deleteList}
-            updateList={updateList}
-          />
+          {  showForm &&
+            <ListForm
+              handleSubmit={createList}
+              uid={uid}
+            />
+          }
+          {
+              showUpdate &&
+            <>
+              <ListForm
+                list={slist}
+                handleSubmit={updateList}
+              />
+              <span onClick={() => {
+
+                setShowUpdate(!showUpdate)
+              }}
+              >close</span>
+            </>
+          }
+        </div>
+
+        <div className={"listContainer"}>
+          {  list ? list.map((ele) => {
+            return (
+              <div key={ele.id} className={'listTitle'}>
+                <ListTitle
+                  uid={uid}
+                  list={ele}
+                  slist={slist}
+                  lid={ele.id}
+                  title={ele.title}
+                  setShowEdit={setShowEdit}
+                  showEdit={showEdit}
+                  setSlist={setSlist}
+                  setShowUpdate={setShowUpdate}
+                  showUpdate={showUpdate}
+                  deleteList={deleteList}
+                  updateList={updateList}
+                />
+
+              </div>
+            )
+          }): <div><h3>You currently have no lists.</h3></div>
+
+          }
 
         </div>
-      )
-    }):''
-    }
+      </div>
 
-  </div>
-</div>
   )
 }
 

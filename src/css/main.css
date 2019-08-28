@@ -95,7 +95,7 @@ h2 {
   width: 100%; }
   .modal .modal-box {
     transition: opacity 2s;
-    background-color: #f7faf8;
+    background-color: #f7fdf4;
     opacity: 1;
     height: 100%;
     width: 100%;
@@ -160,7 +160,8 @@ h2 {
       background-color: #92e05e; }
 
 .listsContainer {
-  height: 80vh; }
+  height: 80vh;
+  color: #3f3a60; }
   .listsContainer .listContainer {
     padding: 0 10%;
     margin: 1%;

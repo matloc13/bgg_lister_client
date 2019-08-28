@@ -1,8 +1,8 @@
 import React, { useState, } from 'react'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '../constants'
+import { toast } from 'react-toastify'
 import Login from './login'
-import SignUp  from './signup'
 
 
 const Nav = (props) => {
@@ -41,6 +41,10 @@ const Nav = (props) => {
     .catch(err => console.error(err))
   }
 
+  const notify = (item) => {
+    toast(`${item}`)
+  }
+
   return (
     <nav
       className={"navbar clearfix"}>
@@ -71,8 +75,8 @@ const Nav = (props) => {
               <Login
                 handleSubmit={getUser}
                 type={true}
-                setSwitch={setLogin}
-                switchval={login}
+                // setSwitch={setLogin}
+                // switchval={login}
 
               /> : <span
                 className={"user"}
@@ -87,8 +91,8 @@ const Nav = (props) => {
               <Login
                 handleSubmit={signupUser}
                 type={false}
-                setSwitch={setSignin}
-                switchval={signin}
+                // setSwitch={setSignin}
+                // switchval={signin}
               /> : <span
                 className={"logout"}
                 onClick={() => {
