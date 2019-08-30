@@ -11,7 +11,7 @@ const Main = () => {
   },[])
 
   const getSolitaireList = () => {
-    fetch(`${BASE_URL}/bgg_lists`)
+    fetch(`${BASE_URL}/bgg_lists?page=1`)
     .then(res => res.json())
     .then(json => setGames(json))
     .catch(err => console.error(err))

@@ -121,7 +121,7 @@ if (user) {
                       slist={slist}
                       setSlist={setSlist}
                     />}
-                />: <div className={'listsContainer'}><h3>User must login to create a list</h3></div>
+                />: ''
             }
 
             <Route

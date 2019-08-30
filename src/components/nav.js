@@ -27,7 +27,7 @@ const Nav = (props) => {
   }
 
   const getUser = (event, fi) => {
-  // console.log(fi)
+  console.log(fi)
     fetch(`${BASE_URL}/users/login`, {
       body: JSON.stringify(fi),
       method: 'POST',
@@ -54,6 +54,10 @@ const Nav = (props) => {
         BGG-lister
       </h1>
       {
+        console.log(user)
+      }
+      {
+
         user &&
         <span>
           {user.user.username}

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 const DropMenu = () => {
   return (
     <div className={"dropNav"}>
-      {/* <span>
+      <span>
         <Link to="/matlocsolo" className={"link"}>
           Solitaire
         </Link>
-      </span> */}
+      </span>
       <span>
         <Link to="/" className={"link"}>
           Hot List
