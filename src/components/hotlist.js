@@ -41,7 +41,7 @@ const HotList = (props) => {
       } */}
 
       <h2>Hot 50</h2>
-
+      
       {
         hotlist.items ?
           hotlist.items.item.map((ele, index) => {

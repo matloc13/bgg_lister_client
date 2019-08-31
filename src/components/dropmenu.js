@@ -5,9 +5,9 @@ const DropMenu = () => {
   return (
     <div className={"dropNav"}>
       <span>
-        <Link to="/matlocsolo" className={"link"}>
+        {/* <Link to="/matlocsolo" className={"link"}>
           Solitaire
-        </Link>
+        </Link> */}
       </span>
       <span>
         <Link to="/" className={"link"}>
