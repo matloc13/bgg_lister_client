@@ -82,7 +82,8 @@ const notify = (item) => {
           <input
             type={"hidden"}
             name={"name"}
-            value={inputs.name} handleChange={handleChange}/>
+            value={inputs.name}
+            handleChange={handleChange}/>
 
           <input
             type={"hidden"}
@@ -93,7 +94,8 @@ const notify = (item) => {
           <input
             type={"hidden"}
             name={"bggid"}
-            value={inputs.bggid} handleChange={handleChange}/>
+            value={inputs.bggid}
+            handleChange={handleChange}/>
 
           <Input
             type={"submit"}

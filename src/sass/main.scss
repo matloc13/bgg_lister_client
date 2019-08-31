@@ -73,6 +73,25 @@ h2 {
   }
 }
 
+.logForm {
+  height: 100%;
+
+  fieldset {
+    border: none;
+
+    input[type=submit] {
+      background: none;
+      border: none;
+      font-size: 1em;
+      color: $boardgameorange;
+    }
+
+    span {
+      padding: 1%;
+    }
+  }
+}
+
 .dropNav {
   display: flex;
   flex-flow: column;

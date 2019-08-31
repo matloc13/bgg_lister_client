@@ -79,8 +79,8 @@ const Nav = (props) => {
               <Login
                 handleSubmit={getUser}
                 type={true}
-                // setSwitch={setLogin}
-                // switchval={login}
+                setSwitch={setLogin}
+                switchval={login}
 
               /> : <span
                 className={"user"}
@@ -95,8 +95,8 @@ const Nav = (props) => {
               <Login
                 handleSubmit={signupUser}
                 type={false}
-                // setSwitch={setSignin}
-                // switchval={signin}
+                setSwitch={setSignin}
+                switchval={signin}
               /> : <span
                 className={"logout"}
                 onClick={() => {

@@ -44,6 +44,18 @@ h2 {
     .navbar span:hover {
       color: #ff5100; }
 
+.logForm {
+  height: 100%; }
+  .logForm fieldset {
+    border: none; }
+    .logForm fieldset input[type=submit] {
+      background: none;
+      border: none;
+      font-size: 1em;
+      color: #ff5100; }
+    .logForm fieldset span {
+      padding: 1%; }
+
 .dropNav {
   display: flex;
   flex-flow: column;

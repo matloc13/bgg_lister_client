@@ -3,7 +3,7 @@ import Input from './input';
 
 const Login = (props) => {
 
-  const {  handleSubmit,type,  } = props
+  const {  handleSubmit,type, setSwitch, switchval,  } = props
   const [inputs, setInputs] = useState({username: '', password: ''}
   )
 
@@ -47,6 +47,9 @@ const userSubmit = (event) => {
           type="submit"
           value={type? "Login": "Create User"}
         />
+        <span onClick={() => {
+          setSwitch(!switchval)
+        }}>X</span>
       </fieldset>
     </form>
   )
