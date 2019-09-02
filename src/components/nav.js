@@ -1,111 +1,157 @@
-import React, { useState, } from 'react'
-import { Link } from 'react-router-dom'
-import { BASE_URL } from '../constants'
-import { toast } from 'react-toastify'
+import React, {
+  useState,
+} from 'react'
+import {
+  Link
+} from 'react-router-dom'
+import {
+  BASE_URL
+} from '../constants'
+import {
+  toast
+} from 'react-toastify'
 import Login from './login'
 
 
 const Nav = (props) => {
 
-  const { user, setUser, toggle,} = props
+  const {
+    user,
+    setUser,
+    toggle,
+  } = props
   const [login, setLogin] = useState(false)
   const [signin, setSignin] = useState(false)
 
   const signupUser = (event, fi) => {
     fetch(`${BASE_URL}/users`, {
-      body: JSON.stringify(fi),
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, plain/text, */*',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .then(setSignin(!signin))
-    .catch(err => console.error(err))
+        body: JSON.stringify(fi),
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, plain/text, */*',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(json => console.log(json))
+      .then(setSignin(!signin))
+      .catch(err => console.error(err))
   }
 
   const getUser = (event, fi) => {
-  console.log(fi)
+    console.log(fi)
     fetch(`${BASE_URL}/users/login`, {
-      body: JSON.stringify(fi),
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, plain/text, */*',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(json => setUser(json))
-    .catch(err => console.error(err))
+        body: JSON.stringify(fi),
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, plain/text, */*',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(json => setUser(json))
+      .catch(err => console.error(err))
   }
 
   const notify = (item) => {
     toast(`${item}`)
   }
 
-  return (
-    <nav
-      className={"navbar clearfix"}>
-      <h1 onClick={() => {
+  return ( <
+    nav className = {
+      "navbar clearfix"
+    } >
+    <
+    h1 onClick = {
+      () => {
         toggle()
-      }}>
-        BGG-lister
-      </h1>
-      {
-        console.log(user)
       }
-      {
+    } >
+    BGG - lister <
+    /h1> {
+      // console.log(user)
+    } {
 
-        user &&
-        <span>
-          {user.user.username}
-        </span>
+      user &&
+        <
+        span > {
+          user.user.username
+        } <
+        /span>
+    } <
+    b > < /b> {
+      user ?
+        <
+        Link to = "/"
+      className = {
+        "logout link"
       }
-      <b></b>
-      {user ?
-        <Link to="/"
-          className={"logout link"}
-          onClick={() => {
+      onClick = {
+          () => {
             localStorage.clear()
             window.location.reload(true)
-          }}
-        >Logout</Link>:
-        <>
-          {
-            login ?
+          }
+        } >
+        Logout < /Link>: <
+        > {
+          login ?
 
-              <Login
-                handleSubmit={getUser}
-                type={true}
-                setSwitch={setLogin}
-                switchval={login}
-
-              /> : <span
-                className={"user"}
-                onClick={() => {
-                  setLogin(!login)
-                }}>Login</span>
+          <
+          Login
+          handleSubmit = {
+            getUser
+          }
+          type = {
+            true
+          }
+          setSwitch = {
+            setLogin
+          }
+          switchval = {
+            login
           }
 
-          {
-            signin ?
-
-              <Login
-                handleSubmit={signupUser}
-                type={false}
-                setSwitch={setSignin}
-                switchval={signin}
-              /> : <span
-                className={"logout"}
-                onClick={() => {
-                  setSignin(!signin)
-                }}>Sign Up</span>
+          /> : <span
+          className = {
+            "user"
           }
-        </>
-      }
-    </nav>
+          onClick = {
+            () => {
+              setLogin(!login)
+            }
+          } > Login < /span>
+        }
+
+      {
+        signin ?
+
+          <
+          Login
+        handleSubmit = {
+          signupUser
+        }
+        type = {
+          false
+        }
+        setSwitch = {
+          setSignin
+        }
+        switchval = {
+          signin
+        }
+        /> : <span
+        className = {
+          "logout"
+        }
+        onClick = {
+          () => {
+            setSignin(!signin)
+          }
+        } > Sign Up < /span>
+      } <
+      />
+    } <
+    /nav>
   )
 }
 
