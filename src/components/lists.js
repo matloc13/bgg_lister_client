@@ -10,7 +10,7 @@ const Lists = (props) => {
   const user = useContext(UserContext)
   const uid = user.user.id
 
-  const { list, setList, slist, setSlist, } = props
+  const { list, setList, slist, setSlist, getLists, } = props
 // state
   const [showForm, setShowForm] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
@@ -19,7 +19,7 @@ const Lists = (props) => {
 
 // lifecycle hooks
   useEffect(() => {
-    getLists()
+    getLists(uid)
   },[])
 
   useEffect(() => {
@@ -27,12 +27,7 @@ const Lists = (props) => {
   })
 
 // requests
-  const getLists = (uid) => {
-    fetch(`${BASE_URL}/users/${uid}/listnames`)
-    .then(res => res.json())
-    .then(json => setList(json))
-    .catch(err => console.error(err))
-  }
+
 
   const createList = (event, fi, uid) => {
     fetch(`${BASE_URL}/users/${uid}/listnames`, {

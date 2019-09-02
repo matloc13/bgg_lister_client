@@ -15,7 +15,7 @@ import './css/main.css'
 
 
 toast.configure({
-  autoClose: 6000,
+  autoClose: 3200,
   draggable: false
 })
 
@@ -68,6 +68,13 @@ if (user) {
     .catch(err => console.error(err))
   }
 
+  const getLists = (uid) => {
+    fetch(`${BASE_URL}/users/${uid}/listnames`)
+    .then(res => res.json())
+    .then(json => setList(json))
+    .catch(err => console.error(err))
+  }
+
   const toggle = () => {
     setDropMenuShow(!dropMenuShow)
   }
@@ -89,7 +96,13 @@ if (user) {
 
           {
             dropMenuShow &&
-            <DropMenu />
+            <DropMenu
+              list={list}
+              setList={setList}
+              slist={slist}
+              setSlist={setSlist}
+              getLists={getLists}
+            />
           }
 
           <Switch>
@@ -101,7 +114,7 @@ if (user) {
             />
 
             <Route
-              path="/" exact
+              path="/hot" exact
               render={(props) =>
                 <HotList {...props}
                   hotlist={hotlist}
@@ -116,6 +129,7 @@ if (user) {
                   path="/myLists"
                   render={(props) =>
                     <Lists {...props}
+                      getLists={getLists}
                       list={list}
                       setList={setList}
                       slist={slist}

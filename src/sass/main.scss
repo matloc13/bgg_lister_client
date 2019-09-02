@@ -31,6 +31,8 @@ h2 {
 
 .link {
   color: $boardgameorange;
+  text-decoration: none;
+  box-shadow: none;
 }
 
 .navbar {
@@ -48,6 +50,7 @@ h2 {
 
   h1 {
     grid-area: logo;
+    @extend .link;
   }
 
   b {
@@ -93,21 +96,37 @@ h2 {
 }
 
 .dropNav {
-  display: flex;
-  flex-flow: column;
-  width: 25%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 150px 150px;
+  grid-gap: 1%;
+  place-items: center;
+  width: 100%;
   z-index: 2;
 
+  .listNames {
+    grid-column: 3;
+    display: flex;
+    flex-flow: column;
+  }
+
   span {
-    text-align: right;
-    padding: 3%;
-    background-color: lighten($boardgameorange, 20%);
+    width: 11%;
+    display: block;
+    // background-color: lighten($boardgameorange, 20%);
+  };
+
+  b {
+    grid-column: 1;
+  }
+
+  .big {
+    grid-column: 2;
   }
 
   .link {
     font-family: 'Lora', serif;
     text-decoration: none;
-    color: white;
+    // color: white;
   }
 }
 
