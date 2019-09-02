@@ -19,7 +19,10 @@ const Lists = (props) => {
 
 // lifecycle hooks
   useEffect(() => {
-    getLists(uid)
+    if (user) {
+      getLists(uid)
+    }
+
   },[])
 
   useEffect(() => {

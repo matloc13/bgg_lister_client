@@ -14,7 +14,10 @@ const {list, setList, slist, setSlist, getLists,} = props
 useEffect(() => {
   console.log(list)
   console.log(uid);
-  getLists(uid)
+  if (user) {
+    getLists(uid)
+  }
+
 },[])
 
   return (
@@ -28,8 +31,6 @@ useEffect(() => {
 
 
           <div className={"listNames"}>
-
-
 
             <span>
               <Link to="/myLists" className={"link"}>

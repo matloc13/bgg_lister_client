@@ -15,7 +15,10 @@ const List = (props) => {
 
 
   useEffect(() => {
-    getList()
+    if (user) {
+      getList()
+    }
+
   }, [])
 
   const {slist,} = props

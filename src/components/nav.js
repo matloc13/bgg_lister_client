@@ -1,5 +1,6 @@
-import React, { useState, } from 'react'
+import React, { useState, useContext,} from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from '../context/usercontext'
 import { BASE_URL } from '../constants'
 import { toast } from 'react-toastify'
 import Login from './login'
@@ -7,9 +8,14 @@ import Login from './login'
 
 const Nav = (props) => {
 
-  const { user, setUser, toggle,} = props
+  // const user = useContext(UserContext)
+  // const uid = user.user.id
+
+  const {  user, setUser, toggle,} = props
   const [login, setLogin] = useState(false)
   const [signin, setSignin] = useState(false)
+
+
 
   const signupUser = (event, fi) => {
     fetch(`${BASE_URL}/users`, {
@@ -54,9 +60,7 @@ const Nav = (props) => {
         </h1>
       </Link>
 
-      {
-        // console.log(user)
-      }
+
       {
 
         user &&
@@ -65,6 +69,7 @@ const Nav = (props) => {
         }}>
           {user.user.username}
         </span>
+
       }
       <b></b>
       {user ?

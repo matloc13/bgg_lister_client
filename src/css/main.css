@@ -14,7 +14,7 @@
 h2 {
   color: #3f3a60; }
 
-.link, .navbar h1 {
+.link, .navbar h1, .navbar a {
   color: #ff5100;
   text-decoration: none;
   box-shadow: none; }
@@ -70,13 +70,13 @@ h2 {
     display: flex;
     flex-flow: column; }
   .dropNav span {
-    width: 11%;
+    width: 100%;
     display: block; }
   .dropNav b {
     grid-column: 1; }
   .dropNav .big {
     grid-column: 2; }
-  .dropNav .link, .dropNav .navbar h1, .navbar .dropNav h1 {
+  .dropNav .link, .dropNav .navbar h1, .navbar .dropNav h1, .dropNav .navbar a, .navbar .dropNav a {
     font-family: 'Lora', serif;
     text-decoration: none; }
 

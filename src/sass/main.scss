@@ -53,6 +53,10 @@ h2 {
     @extend .link;
   }
 
+  a {
+    @extend .link;
+  }
+
   b {
     grid-area: space;
   }
@@ -110,8 +114,9 @@ h2 {
   }
 
   span {
-    width: 11%;
+    width: 100%;
     display: block;
+    // overflow: hidden;
     // background-color: lighten($boardgameorange, 20%);
   };
 
