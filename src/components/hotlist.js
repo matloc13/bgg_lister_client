@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext,} from 'react'
 import {BASE_URL}  from '../constants'
 import UserContext from '../context/usercontext'
+import NewList from './newListform';
 import GameForm from './gameform'
 import Modal from './modal';
 // import Slider from './imageSlider/slider'
@@ -13,6 +14,7 @@ const HotList = (props) => {
 
   const [cgame, setCGame] = useState()
   const [showForm, setShowForm] = useState(false)
+  const [showList, setShowList] = useState(false)
   const [modal, setModal] = useState(false)
 
   const addGame = (event, game, uid, lid) => {
@@ -27,6 +29,7 @@ const HotList = (props) => {
     .then(res => res.json())
     // .then(res => setGame([json, ...game]))
     // .then(res => console.log(json))
+    .then(setShowForm(!showForm))
     .catch(err => console.error(err))
   }
   const listAndGame = (event, list, game, uid) => {
@@ -42,6 +45,7 @@ const HotList = (props) => {
     })
     .then(res => res.json)
     .then(json => console.log(json))
+    .then(setShowList(!showList))
   }
 
   return (
@@ -78,12 +82,19 @@ const HotList = (props) => {
                   }}>Rank: {ele.rank}</span>
                   {
                     user &&
-                    <span
-                      onClick={() => {
+                    <div>
+                      <span
+                        onClick={() => {
+                          setCGame(ele)
+                          setShowForm(!showForm)
+                        }}
+                      >{ !showForm ?  'add to list':'close' }</span>
+                      <span onClick={()=> {
                         setCGame(ele)
-                        setShowForm(!showForm)
+                        setShowList(!showList)
                       }}
-                    >add</span>
+                      >{!showList ? 'create list': 'close'}</span>
+                    </div>
                   }
 
                 </div>
@@ -100,6 +111,16 @@ const HotList = (props) => {
                     slist={slist}
                     list={list}
                     setList={setList}
+                  />
+                }
+
+                {
+                  showList &&
+                  cgame.id === ele.id &&
+                  <NewList
+                    handleSubmit={listAndGame}
+                    game={ele}
+                    uid={uid}
                   />
                 }
               </>

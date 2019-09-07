@@ -245,6 +245,16 @@ h2 {
 
     span {
       display: block;
+      color: $boardgameblue;
+    }
+
+    div {
+      font-size: 0.4em;
+
+      span {
+        box-shadow: 0 0 1px $green;
+        padding: 5%;
+      }
     }
   }
 }
@@ -324,6 +334,14 @@ h2 {
     margin: 0 auto;
     padding: 1%;
     color: $boardgameorange;
+  }
+}
+
+form {
+  fieldset {
+    border: none;
+    box-shadow: 0 0 1px $boardgameorange;
+    width: 90%;
   }
 }
 

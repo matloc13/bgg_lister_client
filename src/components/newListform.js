@@ -1,9 +1,9 @@
 import React, { useState, useEffect,} from 'react'
 import Input from './input'
 
-const NewList= () => {
+const NewList= (props) => {
 
-  const { handleSubmit, uid, } = props
+  const { handleSubmit, uid, game, } = props
 
   const [input, setInput] = useState({
     title: '',
@@ -23,7 +23,7 @@ const newlistAndGame = () => {
 }
 
 return (
-  <form onSubmit={listAndGame} id={'newListForm'}>
+  <form onSubmit={newlistAndGame} id={'newListForm'}>
     <fieldset>
 
       <Input
@@ -36,19 +36,19 @@ return (
       <input
         type={"hidden"}
         name={"name"}
-        value={inputs.name}
+        value={input.name}
         handleChange={handleChange}/>
 
       <input
         type={"hidden"}
         name={"img"}
-        value={inputs.img}
+        value={input.img}
         handleChange={handleChange}/>
 
       <input
         type={"hidden"}
         name={"bggid"}
-        value={inputs.bggid}
+        value={input.bggid}
         handleChange={handleChange}/>
 
       <Input
