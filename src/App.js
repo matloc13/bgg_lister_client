@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
 import Nav from './components/nav'
 import DropMenu from './components/dropmenu'
+import Home from './components/home'
 import Main from './components/main'
 import HotList from './components/hotlist'
 import Lists from './components/lists'
@@ -108,13 +109,20 @@ if (user) {
           <Switch>
 
             <Route
+              path="/" exact
+              render={(props) =>
+                <Home />
+              }
+            />
+
+            <Route
               path="/matlocsolo"
               render={(props) =>
                 <Main />}
             />
 
             <Route
-              path="/hot" exact
+              path="/hot"
               render={(props) =>
                 <HotList {...props}
                   hotlist={hotlist}
@@ -145,7 +153,7 @@ if (user) {
                   slist={slist}
                 />}
             />
-                  }
+            }
           </Switch>
 
           <Footer />

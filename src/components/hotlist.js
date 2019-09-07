@@ -29,6 +29,21 @@ const HotList = (props) => {
     // .then(res => console.log(json))
     .catch(err => console.error(err))
   }
+  const listAndGame = (event, list, game, uid) => {
+
+    fetch(`${BASE_URL}/users/${uid}/listnames`, {
+      body: JSON.stringify({newList: {
+        title: list.title,
+        bggid: game.bggid,
+        name: game.name,
+        img: game.img
+      }
+      }),
+    })
+    .then(res => res.json)
+    .then(json => console.log(json))
+  }
+
   return (
     <div className={"hotlistContainer"}>
       {/* {
@@ -41,7 +56,7 @@ const HotList = (props) => {
       } */}
 
       <h2>Hot 50</h2>
-      
+
       {
         hotlist.items ?
           hotlist.items.item.map((ele, index) => {
@@ -72,6 +87,8 @@ const HotList = (props) => {
                   }
 
                 </div>
+
+
 
                 {
                   showForm &&

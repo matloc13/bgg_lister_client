@@ -46,6 +46,9 @@ h2 {
     .navbar span:hover {
       color: #ff5100; }
 
+.home {
+  height: 90vh; }
+
 .logForm {
   height: 100%; }
   .logForm fieldset {
@@ -64,11 +67,15 @@ h2 {
   grid-gap: 1%;
   place-items: center;
   width: 100%;
-  z-index: 2; }
+  background-color: #3f3a60; }
   .dropNav .listNames {
     grid-column: 3;
     display: flex;
-    flex-flow: column; }
+    flex-flow: column;
+    z-index: 2; }
+    .dropNav .listNames a {
+      color: #92e05e;
+      text-decoration: none; }
   .dropNav span {
     width: 100%;
     display: block; }
@@ -117,7 +124,7 @@ h2 {
   width: 100%; }
   .modal .modal-box {
     transition: opacity 2s;
-    background-color: #f7fdf4;
+    background-color: #f7faf8;
     opacity: 1;
     height: 100%;
     width: 100%;
@@ -126,7 +133,7 @@ h2 {
     margin: 1% auto;
     padding: 2%;
     line-height: 120%;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px rgba(63, 58, 96, 0.2);
     overflow: auto; }
 
 .gameContainer {
@@ -134,7 +141,7 @@ h2 {
   box-shadow: 1px 10px 5px rgba(63, 58, 96, 0.6);
   margin: 3% auto;
   width: 80%;
-  background-color: ghostwhite;
+  background-color: white;
   padding: 1%; }
   .gameContainer a {
     color: #3f3a60;
@@ -187,11 +194,15 @@ h2 {
       margin: 0 3%;
       color: #b9e05d;
       padding: 0 3%;
-      text-align: left; }
+      text-align: left;
+      width: 1%; }
     .gamelist .gamelistItem:hover {
       background-color: #3f3a60;
       color: #92e05e;
       font-weight: 600; }
+      .gamelist .gamelistItem:hover span {
+        box-shadow: 0 0 1px #b9e05d;
+        color: #b9e05d; }
 
 .listsContainer {
   height: 80vh;

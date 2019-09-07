@@ -17,7 +17,7 @@ const Lists = (props) => {
   const [showUpdate, setShowUpdate] = useState(false)
   // const [cgame, setCGame] = useState()
 
-// lifecycle hooks
+
   useEffect(() => {
     if (user) {
       getLists(uid)

@@ -80,6 +80,10 @@ h2 {
   }
 }
 
+.home {
+  height: 90vh;
+}
+
 .logForm {
   height: 100%;
 
@@ -105,19 +109,23 @@ h2 {
   grid-gap: 1%;
   place-items: center;
   width: 100%;
-  z-index: 2;
+  background-color: $boardgameblue;
 
   .listNames {
     grid-column: 3;
     display: flex;
     flex-flow: column;
+    z-index: 2;
+
+    a {
+      color: $green;
+      text-decoration: none;
+    }
   }
 
   span {
     width: 100%;
     display: block;
-    // overflow: hidden;
-    // background-color: lighten($boardgameorange, 20%);
   };
 
   b {
@@ -180,8 +188,8 @@ h2 {
   // z-index: 3;
   .modal-box {
     transition: opacity 2s;
-    // background-color: $backgroundWhite
-    background-color: lighten($green, 35%);
+    background-color: $backgroundWhite;
+    // background-color: lighten($green, 35%);
     opacity: 1;
     // width: 80vw;
     height: 100%;
@@ -191,7 +199,7 @@ h2 {
     margin: 1% auto;
     padding: 2%;
     line-height: 120%;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px rgba(63,58,96,0.2);
     overflow: auto;
   }
 }
@@ -201,7 +209,7 @@ h2 {
   box-shadow: 1px 10px 5px rgba(63, 58, 96, 60%);
   margin: 3% auto;
   width: 80%;
-  background-color: ghostwhite;
+  background-color: white;
   padding: 1%;
 
   a {
@@ -275,12 +283,18 @@ h2 {
       color: $lightgreen;
       padding: 0 3%;
       text-align: left;
+      width: 1%;
     }
 
     &:hover {
       background-color: $boardgameblue;
       color: $green;
       font-weight: 600;
+
+      span {
+        box-shadow: 0 0 1px $lightgreen;
+        color: $lightgreen;
+      }
     }
   }
 }
