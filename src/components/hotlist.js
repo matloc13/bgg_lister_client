@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext,} from 'react'
+import React, {useState,  useContext,} from 'react'
 import {BASE_URL}  from '../constants'
 import UserContext from '../context/usercontext'
 import NewList from './newListform';
@@ -32,20 +32,25 @@ const HotList = (props) => {
     .then(setShowForm(!showForm))
     .catch(err => console.error(err))
   }
-  const listAndGame = (event, list, game, uid) => {
-
+  const listAndGame = (event, game, uid, title) => {
+console.log(game)
+console.log(title)
     fetch(`${BASE_URL}/users/${uid}/listnames`, {
-      body: JSON.stringify({newList: {
-        title: list.title,
-        bggid: game.bggid,
-        name: game.name,
-        img: game.img
+      method: 'POST',
+      body: JSON.stringify({listname: {
+        title: title,
+        nu_game: game
       }
       }),
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      }
     })
     .then(res => res.json)
     .then(json => console.log(json))
     .then(setShowList(!showList))
+    .catch(err => console.error(err))
   }
 
   return (
@@ -65,7 +70,7 @@ const HotList = (props) => {
         hotlist.items ?
           hotlist.items.item.map((ele, index) => {
             return (
-              <>
+              <div key={index}>
                 <div
                   key={index}
                   className={"hotlistItem"}>
@@ -123,11 +128,11 @@ const HotList = (props) => {
                     uid={uid}
                   />
                 }
-              </>
+              </div>
             )
           }):''
       }
-      <div className={"modalContainer"}>
+      <div className={"modalContainer"} key={cgame && cgame.id}>
         {
           modal &&
           <Modal

@@ -1,7 +1,10 @@
-import React, { useState, useEffect,} from 'react'
+import React, { useState,  useContext,} from 'react'
+import UserContext from '../context/usercontext'
 import Input from './input'
 
 const NewList= (props) => {
+
+  const user = useContext(UserContext)
 
   const { handleSubmit, uid, game, } = props
 
@@ -13,11 +16,17 @@ const NewList= (props) => {
 
   })
 
-const newlistAndGame = () => {
-
+const newlistAndGame = (event) => {
+  event.preventDefault()
+  const game = {
+    name: input.name,
+    img: input.img,
+    bggid: input.bggid
+  }
+  handleSubmit(event, game, user.user.id, input.title)
 }
 
-  const handleChange = (event) => {
+  const handlechange = (event) => {
   event.persist()
   setInput({ ...input, [event.target.name]: event.target.value })
 }
@@ -27,7 +36,7 @@ return (
     <fieldset>
 
       <Input
-        handleChange={handleChange}
+        handleChange={handlechange}
         type={"text"}
         name={"title"}
         value={input.title}
@@ -37,19 +46,19 @@ return (
         type={"hidden"}
         name={"name"}
         value={input.name}
-        handleChange={handleChange}/>
+        handleChange={handlechange}/>
 
       <input
         type={"hidden"}
         name={"img"}
         value={input.img}
-        handleChange={handleChange}/>
+        handleChange={handlechange}/>
 
       <input
         type={"hidden"}
         name={"bggid"}
         value={input.bggid}
-        handleChange={handleChange}/>
+        handleChange={handlechange}/>
 
       <Input
         type={"submit"}

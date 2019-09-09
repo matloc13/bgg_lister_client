@@ -81,16 +81,16 @@ const Lists = (props) => {
 
       <div className={"listsContainer"}>
         <div>
-          <button onClick={() => {
+          {/* <button onClick={() => {
             setShowForm(!showForm)
-          }}>
+            }}>
             {
               showForm ?
-                  "close"
+            "close"
               : 'create list'
             }
 
-          </button>
+          </button> */}
 
           {  showForm &&
             <ListForm

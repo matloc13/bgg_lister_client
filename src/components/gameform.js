@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, } from 'react'
 import UserContext from '../context/usercontext'
-// import Select from './select'
 import { BASE_URL } from '../constants'
 import { toast } from 'react-toastify'
 import Select from 'react-select'
@@ -29,12 +28,12 @@ const [selectedOption, setSelectedOption] = useState(null)
 useEffect(() => {
   getLists(user.user.id)
   console.log(list)
-},[])
+},[ list, user.user.id])
 
 useEffect(() => {
   console.log(selectedOption)
   console.log(options);
-},[selectedOption])
+},[selectedOption, options])
 
 
 const getLists = () => {
