@@ -1,0 +1,26 @@
+.logForm {
+  height: 100%;
+
+  fieldset {
+    border: none;
+
+    input[type=submit] {
+      background: none;
+      border: none;
+      font-size: 1em;
+      color: $boardgameorange;
+    }
+
+    span {
+      padding: 1%;
+    }
+  }
+}
+
+form {
+  fieldset {
+    border: none;
+    box-shadow: 0 0 1px $boardgameorange;
+    width: 90%;
+  }
+}

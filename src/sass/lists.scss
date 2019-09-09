@@ -1,0 +1,27 @@
+.listsContainer {
+  height: 80vh;
+  color: $boardgameblue;
+
+  .listContainer {
+    padding: 0 10%;
+    margin: 1%;
+    text-align: left;
+  }
+}
+
+.listTitleLinkContainer {
+  h3 {
+    color: $boardgameblue;
+    text-decoration: none;
+  }
+
+  Link {
+    text-decoration: none;
+  }
+  // display: flex;
+  span {
+    margin: 0 auto;
+    padding: 1%;
+    color: $boardgameorange;
+  }
+}

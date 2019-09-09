@@ -1,0 +1,20 @@
+.gameContainer {
+  border-radius: 1%;
+  box-shadow: 1px 10px 5px rgba(63, 58, 96, 60%);
+  margin: 3% auto;
+  width: 80%;
+  background-color: white;
+  padding: 1%;
+
+  a {
+    color: $boardgameblue;
+    text-decoration: none;
+    box-shadow: 0 1px rgba(255, 81, 0, 30%);
+  }
+}
+
+.description {
+  overflow: auto;
+  line-height: 1.4em;
+  padding: 4%;
+}

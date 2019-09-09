@@ -1,0 +1,48 @@
+.modal {
+  font-family: 'Lora', serif;
+  display: block;
+  // background-color: rgba(0,0,0,.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  // z-index: 3;
+  .modal-box {
+    transition: opacity 2s;
+    background-color: $backgroundWhite;
+    // background-color: lighten($green, 35%);
+    opacity: 1;
+    // width: 80vw;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 2%;
+    margin: 1% auto;
+    padding: 2%;
+    line-height: 120%;
+    box-shadow: 0 2px 2px rgba(63,58,96,0.2);
+    overflow: auto;
+  }
+}
+
+.modalContainer {
+  // grid-area: modal;
+  grid-column: 2/3;
+  grid-row: 1/51;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  position: relative;
+}
+// @media (max-width: 1125px) {
+//   .modalContainer {
+//     // grid-area: modal;
+//     // grid-column: 2/3;
+//     // grid-row: 1/51;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     // position: relative;
+//   }
+// }

@@ -1,0 +1,39 @@
+.gamelist {
+  margin: 1% auto;
+  padding: 2%;
+  width: 90%;
+  min-height: 70vh;
+  text-align: right;
+  color: $boardgameblue;
+  box-shadow: 0 1px 3px rgba(255, 81, 0, 30%);
+
+  .gamelistItem {
+    padding: 1%;
+    background-color: $lightgreen;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+
+    &:nth-child(3n) {
+      background-color: $green;
+    }
+
+    span {
+      margin: 0 3%;
+      color: $lightgreen;
+      padding: 0 3%;
+      text-align: left;
+      width: 1%;
+    }
+
+    &:hover {
+      background-color: $boardgameblue;
+      color: $green;
+      font-weight: 600;
+
+      span {
+        box-shadow: 0 0 1px $lightgreen;
+        color: $lightgreen;
+      }
+    }
+  }
+}

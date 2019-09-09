@@ -1,0 +1,32 @@
+.slider {
+  width: 80%;
+  margin: auto;
+  height: 150px;
+  // overflow: hidden;
+  position: relative;
+}
+
+.sliderWrapper {
+  display: flex;
+  overflow: inherit;
+}
+
+.slide {
+  margin: 0 20%;
+}
+
+.rightArrow {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  z-index: 3;
+  color: red;
+}
+
+.leftArrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  color: red;
+}
