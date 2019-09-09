@@ -87,18 +87,20 @@ console.log(title)
                   }}>Rank: {ele.rank}</span>
                   {
                     user &&
-                    <div>
-                      <span
-                        onClick={() => {
+                    <div className={"menuArrow"}>
+                      <div className={'addButtons'}>
+                        <span
+                          onClick={() => {
+                            setCGame(ele)
+                            setShowForm(!showForm)
+                          }}
+                        >{ !showForm ?  'add to list':'close' }</span>
+                        <span onClick={()=> {
                           setCGame(ele)
-                          setShowForm(!showForm)
+                          setShowList(!showList)
                         }}
-                      >{ !showForm ?  'add to list':'close' }</span>
-                      <span onClick={()=> {
-                        setCGame(ele)
-                        setShowList(!showList)
-                      }}
-                      >{!showList ? 'create list': 'close'}</span>
+                        >{!showList ? 'create list': 'close'}</span>
+                      </div>
                     </div>
                   }
 

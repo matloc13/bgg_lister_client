@@ -22,12 +22,32 @@
       color: $boardgameblue;
     }
 
-    div {
+    .menuArrow {
+      // background-image: url("../../public/Down-Arrow-PNG.png");
+      // background-image: url("http://www.foxrep.com/wp-content/uploads/2017/11/Down-Arrow-PNG.png");
+      width: 100%;
+    }
+
+    .addButtons {
+      height: 90%;
+      transition: opacity 0.43s ease-in;
+      transition: transform 1s ease-out;
+      transition: font-size 0.1s ease-in;
       font-size: 0.4em;
+      opacity: 0;
+
+      &:hover {
+        opacity: 1;
+        transform: translateY(30px);
+        transform: translateX(5px);
+        font-size: 0.7em;
+      }
 
       span {
-        box-shadow: 0 0 1px $green;
+        box-shadow: 0 0 3px $green;
+        margin: 6% auto;
         padding: 5%;
+        color: $boardgameblue;
       }
     }
   }

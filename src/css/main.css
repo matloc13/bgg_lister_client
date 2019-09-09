@@ -164,11 +164,25 @@ form fieldset {
     .hotlistContainer .hotlistItem span {
       display: block;
       color: #3f3a60; }
-    .hotlistContainer .hotlistItem div {
-      font-size: 0.4em; }
-      .hotlistContainer .hotlistItem div span {
-        box-shadow: 0 0 1px #92e05e;
-        padding: 5%; }
+    .hotlistContainer .hotlistItem .menuArrow {
+      width: 100%; }
+    .hotlistContainer .hotlistItem .addButtons {
+      height: 90%;
+      transition: opacity 0.43s ease-in;
+      transition: transform 1s ease-out;
+      transition: font-size 0.1s ease-in;
+      font-size: 0.4em;
+      opacity: 0; }
+      .hotlistContainer .hotlistItem .addButtons:hover {
+        opacity: 1;
+        transform: translateY(30px);
+        transform: translateX(5px);
+        font-size: 0.7em; }
+      .hotlistContainer .hotlistItem .addButtons span {
+        box-shadow: 0 0 3px #92e05e;
+        margin: 6% auto;
+        padding: 5%;
+        color: #3f3a60; }
 
 .listsContainer {
   height: 80vh;
