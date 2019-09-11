@@ -1,7 +1,6 @@
 .modal {
   font-family: 'Lora', serif;
   display: block;
-  // background-color: rgba(0,0,0,.7);
   position: absolute;
   top: 0;
   left: 0;
@@ -11,7 +10,6 @@
   .modal-box {
     transition: opacity 2s;
     background-color: $backgroundWhite;
-    // background-color: lighten($green, 35%);
     opacity: 1;
     height: 100%;
     width: 100%;
