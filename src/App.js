@@ -9,6 +9,7 @@ import DropMenu from './components/dropmenu'
 import Home from './components/home'
 import Main from './components/main'
 import HotList from './components/hotlist'
+import Search from './components/search';
 import Lists from './components/lists'
 import List from './components/list'
 import Footer from './components/footer'
@@ -73,6 +74,14 @@ if (user) {
     fetch(`${BASE_URL}/users/${uid}/listnames`)
     .then(res => res.json())
     .then(json => setList(json))
+    .catch(err => console.error(err))
+  }
+
+  const getSearch = (event, query) => {
+    console.log(query)
+    fetch(`${BASE_URL}/searchlists/${query}`)
+    .then(res => res.json())
+    .then(json => console.log(json))
     .catch(err => console.error(err))
   }
 
@@ -153,6 +162,18 @@ if (user) {
                   slist={slist}
                 />}
             />
+            <Route
+              path="/search"
+              render={(props) =>
+                <Search {...props}
+                  list={list}
+                  slist={slist}
+                  setSlist={setSlist}
+                  handleSubmit={getSearch}
+                />}
+
+                />
+
             }
           </Switch>
 

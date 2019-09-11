@@ -69,7 +69,15 @@ const Game = (props) => {
 
             {
               showDesc &&
-              <p className={"description"}>{currentGame.items.item.description.replace(/&#10;/g,' ').replace(/&rsquo;/g, '\'').replace(/&ndash;/g, ':').replace(/&mdash;/g, '-').replace(/&quot;/g,'"').replace(/&nbsp;/g, ' ')}</p>
+              <p className={"description"}>{currentGame.items.item.description
+                .replace(/&hellip;/g, '...')
+                .replace(/&#10;/g,' ')
+                .replace(/&rsquo;/g, '\'')
+                .replace(/&ndash;/g, ':')
+                .replace(/&mdash;/g, '-')
+                .replace(/&quot;/g,'"')
+                .replace(/&nbsp;/g, ' ')
+              }</p>
             }
           </>
         :''

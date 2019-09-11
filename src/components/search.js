@@ -2,20 +2,28 @@ import React, { useState,} from 'react'
 import { BASE_URL} from '../constants'
 import Input from './input'
 
-const Search = () => {
+const Search = (props) => {
 
-  const search = (query) => {
-    fetch(`${BASE_URL}/`)
-  }
-  const [search, setSearch] = useState()
+const { handleSubmit, list, slist, setSlist, } = props
+
+const [search, setSearch] = useState('')
+
+const setSearchQuery = (event) => {
+  event.preventDefault()
+  let query = search
+  query = query.replace(/\s/g, '+')
+  console.log(query)
+  handleSubmit(event, query)
+}
+
 
   const handleChange = (event)=> {
-    setSearch({ event.target.value})
+    setSearch( event.target.value)
   }
 
   return (
     <>
-      <form>
+      <form onSubmit={setSearchQuery}>
         <Input
           name={"query"}
           type={"text"}
