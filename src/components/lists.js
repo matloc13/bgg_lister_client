@@ -12,10 +12,10 @@ const Lists = (props) => {
 
   const { list, setList, slist, setSlist, getLists, } = props
 // state
-  const [showForm, setShowForm] = useState(false)
+  // const [showForm, setShowForm] = useState(false)
   const [showEdit, setShowEdit] = useState(false)
   const [showUpdate, setShowUpdate] = useState(false)
-  // const [cgame, setCGame] = useState()
+
 
 
   useEffect(() => {
@@ -32,19 +32,19 @@ const Lists = (props) => {
 // requests
 
 
-  const createList = (event, fi, uid) => {
-    fetch(`${BASE_URL}/users/${uid}/listnames`, {
-      body: JSON.stringify(fi),
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json, plain/text',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(json => setList([json, ...list]))
-    .catch(err => console.error(err))
-  }
+  // const createList = (event, fi, uid) => {
+  //   fetch(`${BASE_URL}/users/${uid}/listnames`, {
+  //     body: JSON.stringify(fi),
+  //     method: 'POST',
+  //     headers: {
+  //       'Accept': 'application/json, plain/text',
+  //       'Content-Type': 'application/json'
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   .then(json => setList([json, ...list]))
+  //   .catch(err => console.error(err))
+  // }
 
   const updateList = (event, fi, uid, lid) => {
     event.preventDefault()
@@ -81,23 +81,14 @@ const Lists = (props) => {
 
       <div className={"listsContainer"}>
         <div>
-          {/* <button onClick={() => {
-            setShowForm(!showForm)
-            }}>
-            {
-              showForm ?
-            "close"
-              : 'create list'
-            }
 
-          </button> */}
 
-          {  showForm &&
+          {/* {  showForm &&
             <ListForm
               handleSubmit={createList}
               uid={uid}
             />
-          }
+          } */}
           {
               showUpdate &&
             <>

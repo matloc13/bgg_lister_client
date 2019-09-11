@@ -140,14 +140,34 @@ form fieldset {
     line-height: 120%;
     box-shadow: 0 2px 2px rgba(63, 58, 96, 0.2);
     overflow: auto; }
+    .modal .modal-box .close {
+      text-align: right; }
 
 .modalContainer {
   grid-column: 2/3;
   grid-row: 1/51;
-  position: relative; }
+  position: relative;
+  margin: 1%; }
 
+@media (max-width: 1125px) {
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3; }
+    .modal .modal-box {
+      width: 80vw;
+      position: relative; }
+
+  .modalContainer {
+    display: block; } }
+@media (max-width: 600px) {
+  .modal-box {
+    width: 90vw; } }
 .hotlistContainer {
-  width: 90%;
+  width: 95%;
   height: auto;
   margin: 0 auto;
   display: grid;
@@ -164,8 +184,6 @@ form fieldset {
     .hotlistContainer .hotlistItem span {
       display: block;
       color: #3f3a60; }
-    .hotlistContainer .hotlistItem .menuArrow {
-      width: 100%; }
     .hotlistContainer .hotlistItem .addButtons {
       height: 90%;
       transition: opacity 0.43s ease-in;
@@ -184,6 +202,11 @@ form fieldset {
         padding: 5%;
         color: #3f3a60; }
 
+@media (max-width: 1125px) {
+  .hotlistContainer {
+    display: block; }
+    .hotlistContainer .hotlistItem {
+      margin: 1% 3% 1% 1%; } }
 .listsContainer {
   height: 80vh;
   color: #3f3a60; }

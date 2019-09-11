@@ -1,6 +1,5 @@
-import React, { useState, useContext,} from 'react'
+import React, { useState, } from 'react'
 import { Link } from 'react-router-dom'
-import UserContext from '../context/usercontext'
 import { BASE_URL } from '../constants'
 import { toast } from 'react-toastify'
 import Login from './login'
@@ -8,8 +7,6 @@ import Login from './login'
 
 const Nav = (props) => {
 
-  // const user = useContext(UserContext)
-  // const uid = user.user.id
 
   const {  user, setUser, toggle,} = props
   const [login, setLogin] = useState(false)

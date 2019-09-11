@@ -8,13 +8,15 @@ const Modal = (props) => {
   return (
     <div className={"modal"}>
       <div className={"modal-box"}>
-        <div onClick={() => {
-          setModal(!modal)
-        }}>X</div>
+        <div
+          className={"close"}
+          onClick={() => {
+            setModal(!modal)
+          }}>X</div>
         <Game
           lookup={lookup}
         />
-        
+
       </div>
     </div>
   )
