@@ -23,6 +23,7 @@ const Game = (props) => {
     fetch(`${BASE_URL}/bgg_lists/${id}`)
     .then(res => res.json())
     .then(json => setCurrentGame(json))
+    .catch(err => console.error(err))
   }
 
   return (
@@ -31,12 +32,14 @@ const Game = (props) => {
         currentGame ?
           <>
             {
+              currentGame.items &&
               currentGame.items.item.name.value ?
                 <div>
                   <img src={currentGame.items.item.thumbnail} alt={currentGame.items.item.name.value}/>
                   <h3>
                     <a
-                      href={currentGame.items.item.image}
+                      href={
+                        currentGame.items.item.image ? currentGame.items.item.image:''}
                       target={"_blank"}>
                       {currentGame.items.item.name.value}
                     </a>
@@ -59,12 +62,20 @@ const Game = (props) => {
             {
               currentGame.items.item.link.map((ele) => {
                 return (
-                  ele.type==="boardgamedesigner" &&
+                  ele.type==="boardgamedesigner" ?
                     <p>Designer: {ele.value}</p>
+                  : ''
                 )}
               )
             }
-            <h6>Year Published: {currentGame.items.item.yearpublished.value}</h6>
+            <h6>Year Published:
+              {
+                currentGame.items.item.yearpublished &&
+                currentGame.items.item.yearpublished.value ?
+                  currentGame.items.item.yearpublished.value
+                : ''
+              }
+            </h6>
             <span onClick={() => {setShowDesc(!showDesc)}}>description</span>
 
             {

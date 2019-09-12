@@ -27,6 +27,7 @@ function App() {
   const [user, setUser] = useState()
   // const [username, setUsername] = useState()
   const [hotlist, setHotlist] = useState([])
+  const [searchList, setSearchList] = useState([])
   const [list, setList] = useState([])
   const [slist, setSlist] = useState({})
   const [dropMenuShow, setDropMenuShow] = useState(false)
@@ -74,14 +75,14 @@ if (user) {
     fetch(`${BASE_URL}/users/${uid}/listnames`)
     .then(res => res.json())
     .then(json => setList(json))
-    .catch(err => console.error(err))
+    .catch(err => alert('could not load'))
   }
 
   const getSearch = (event, query) => {
     console.log(query)
     fetch(`${BASE_URL}/searchlists/${query}`)
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(json => setSearchList(json))
     .catch(err => console.error(err))
   }
 
@@ -170,6 +171,7 @@ if (user) {
                   slist={slist}
                   setSlist={setSlist}
                   handleSubmit={getSearch}
+                  searchList={searchList}
                 />}
 
                 />
