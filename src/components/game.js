@@ -7,9 +7,10 @@ const Game = (props) => {
 
   const [currentGame, setCurrentGame] = useState()
   const [showDesc, setShowDesc] = useState(false)
+  const [showPub, setShowPub] = useState(false)
 
   useEffect(() => {
-    if (i <= 30) {
+    if (i <= 30 || i === undefined ) {
       searchGame(lookup)
     }
 
@@ -75,9 +76,25 @@ const Game = (props) => {
                   ele.type==="boardgamedesigner" ?
                     <p>Designer: {ele.value}</p>
                   : ''
+
                 )}
               )
             }
+            <h5 onClick={()=> {
+              setShowPub(!showPub)
+            }}>{!showPub ? 'Publishers' : 'hide'}</h5>
+            {
+              showPub &&
+              currentGame.items.item.link.map((ele) => {
+                return (
+                  ele.type === "boardgamepublisher" ?
+                    <p>Publisher: {ele.value}</p>
+                  : ''
+
+                )}
+              )
+            }
+
             <h6>Year Published:
               {
                 currentGame.items.item.yearpublished &&
@@ -98,6 +115,7 @@ const Game = (props) => {
                 .replace(/&mdash;/g, '-')
                 .replace(/&quot;/g,'"')
                 .replace(/&nbsp;/g, ' ')
+                .replace(/&amp;/g, '&')
               }</p>
             }
           </>
