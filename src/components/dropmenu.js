@@ -24,6 +24,12 @@ useEffect(() => {
     <div className={"dropNav"}>
       <b></b>
       <b className={"big"}></b>
+      <Link
+        to="/search"
+        className={"link"}
+      ><h5>search</h5>
+      </Link>
+      
       {
 
 

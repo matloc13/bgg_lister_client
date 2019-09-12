@@ -83,6 +83,7 @@ if (user) {
     fetch(`${BASE_URL}/searchlists/${query}`)
     .then(res => res.json())
     .then(json => setSearchList(json))
+    // .then(json => console.log(json))
     .catch(err => console.error(err))
   }
 

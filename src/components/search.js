@@ -41,11 +41,12 @@ const setSearchQuery = (event) => {
         {
           searchList.items &&
 
-          searchList.items.item.map((ele) => {
+          searchList.items.item.map((ele, i) => {
             return (
               <Game
                 name={ele.name.value}
                 lookup={ele.id}
+                i={i}
               />
             )})
         }

@@ -22,6 +22,9 @@ h2 {
 .home {
   height: 90vh; }
 
+.searchContainer {
+  min-height: 90vh; }
+
 .slider {
   width: 80%;
   margin: auto;

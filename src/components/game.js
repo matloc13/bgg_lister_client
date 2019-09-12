@@ -3,13 +3,16 @@ import { BASE_URL } from '../constants'
 
 const Game = (props) => {
 
-  const {lookup, name, } = props
+  const {lookup, name, i, } = props
 
   const [currentGame, setCurrentGame] = useState()
   const [showDesc, setShowDesc] = useState(false)
 
   useEffect(() => {
-    searchGame(lookup)
+    if (i <= 30) {
+      searchGame(lookup)
+    }
+
       return (setCurrentGame())
   },[lookup])
 
@@ -23,7 +26,7 @@ const Game = (props) => {
     fetch(`${BASE_URL}/bgg_lists/${id}`)
     .then(res => res.json())
     .then(json => setCurrentGame(json))
-    .catch(err => console.error(err))
+    .catch(err =>  console.error(err))
   }
 
   return (
@@ -37,12 +40,16 @@ const Game = (props) => {
                 <div>
                   <img src={currentGame.items.item.thumbnail} alt={currentGame.items.item.name.value}/>
                   <h3>
-                    <a
-                      href={
-                        currentGame.items.item.image ? currentGame.items.item.image:''}
-                      target={"_blank"}>
-                      {currentGame.items.item.name.value}
-                    </a>
+                    { currentGame.items.item.image &&
+                      currentGame.items.item.image ?
+                        <a
+                          href={
+                          currentGame.items.item.image}
+                          target={"_blank"}>
+
+                          {currentGame.items.item.name.value}
+                        </a>
+                      :''}
                   </h3>
                 </div>
               :
@@ -51,11 +58,14 @@ const Game = (props) => {
               <div>
                 <img src={currentGame.items.item.thumbnail} alt={currentGame.items.item.name[0].value}/>
                 <h3>
-                  <a
-                    href={currentGame.items.item.image}
-                    target={"_blank"}>
-                    {currentGame.items.item.name[0].value}
-                  </a>
+                  {currentGame.items.item.image &&
+                    currentGame.items.item.image ?
+                      <a
+                        href={currentGame.items.item.image}
+                        target={"_blank"}>
+                        {currentGame.items.item.name[0].value}
+                      </a>
+                    : ''}
                 </h3>
               </div>
             }
@@ -76,7 +86,7 @@ const Game = (props) => {
                 : ''
               }
             </h6>
-            <span onClick={() => {setShowDesc(!showDesc)}}>description</span>
+            <span onClick={() => {setShowDesc(!showDesc)}}>{!showDesc ? 'description' : 'close'}</span>
 
             {
               showDesc &&
