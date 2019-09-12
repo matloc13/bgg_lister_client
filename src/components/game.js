@@ -13,7 +13,6 @@ const Game = (props) => {
     if (i <= 30 || i === undefined ) {
       searchGame(lookup)
     }
-
       return (setCurrentGame())
   },[lookup])
 
@@ -117,6 +116,7 @@ const Game = (props) => {
                 .replace(/&nbsp;/g, ' ')
                 .replace(/&amp;/g, '&')
                 .replace(/&rdquo;/g, '\"')
+                .replace(/&ldquo;/g, '\"')
               }</p>
             }
           </>
