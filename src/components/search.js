@@ -15,6 +15,7 @@ const setSearchQuery = (event) => {
   query = query.replace(/\s/g, '+')
   console.log(query)
   handleSubmit(event, query)
+  setSearch('')
 }
 
 
