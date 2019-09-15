@@ -29,12 +29,9 @@ useEffect(() => {
         className={"link"}
       ><h5>search</h5>
       </Link>
-      
+
       {
-
-
         user ?
-
 
           <div className={"listNames"}>
 
@@ -55,14 +52,10 @@ useEffect(() => {
                       lid={ele.id}
                       title={ele.title}
                       setSlist={setSlist}
-
-
                     />
                   </>
                 )
               })
-
-
 
               }
             </div>

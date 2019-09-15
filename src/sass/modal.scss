@@ -9,13 +9,14 @@
 
   .modal-box {
     transition: opacity 2s;
-    background-color: $backgroundWhite;
+    // background-color: $backgroundWhite;
+    background-color: $lightgreen;
     opacity: 1;
     height: 100%;
     width: 100%;
     position: relative;
-    border-radius: 2%;
-    margin: 1% auto;
+    border-radius: 0.3%;
+    margin: 0 auto;
     padding: 2%;
     line-height: 120%;
     box-shadow: 0 2px 2px rgba(63,58,96,0.2);
@@ -33,7 +34,22 @@
   position: relative;
   margin: 1%;
 }
-@media (max-width: 1125px) {
+@media (max-width: 1159px) {
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+
+    .modal-box {
+      width: 92vw;
+      position: relative;
+    }
+  }
+}
+@media (max-width: 720px) {
   .modal {
     position: fixed;
     top: 0;
@@ -54,6 +70,8 @@
 }
 @media (max-width: 600px) {
   .modal-box {
-    width: 90vw;
+    width: 95vw;
   }
+
+  modal {}
 }

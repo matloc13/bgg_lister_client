@@ -22,12 +22,10 @@ toast.configure({
 })
 
 
-function App() {
+const  App = () => {
 
   const [user, setUser] = useState()
-  // const [username, setUsername] = useState()
   const [hotlist, setHotlist] = useState([])
-  const [searchList, setSearchList] = useState([])
   const [list, setList] = useState([])
   const [slist, setSlist] = useState({})
   const [dropMenuShow, setDropMenuShow] = useState(false)
@@ -35,6 +33,7 @@ function App() {
   useEffect(() => {
     console.log('did load')
     getHotList()
+
     if (!localStorage.getItem("user")) {
       console.log('storage empty');
     } else {
@@ -76,15 +75,6 @@ if (user) {
     .then(res => res.json())
     .then(json => setList(json))
     .catch(err => alert('could not load'))
-  }
-
-  const getSearch = (event, query) => {
-    console.log(query)
-    fetch(`${BASE_URL}/searchlists/${query}`)
-    .then(res => res.json())
-    .then(json => setSearchList(json))
-    // .then(json => console.log(json))
-    .catch(err => console.error(err))
   }
 
   const toggle = () => {
@@ -171,19 +161,15 @@ if (user) {
                   list={list}
                   slist={slist}
                   setSlist={setSlist}
-                  handleSubmit={getSearch}
-                  searchList={searchList}
+
                 />}
 
-                />
-
+            />
             }
           </Switch>
 
           <Footer />
-
         </div>
-
       </Router>
     </UserProvider>
   )

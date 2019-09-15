@@ -117,6 +117,7 @@ const Game = (props) => {
                 .replace(/&amp;/g, '&')
                 .replace(/&rdquo;/g, '\"')
                 .replace(/&ldquo;/g, '\"')
+                .replace(/&bull;/g, '~')
               }</p>
             }
           </>

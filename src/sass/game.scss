@@ -1,10 +1,10 @@
 .gameContainer {
-  border-radius: 1%;
+  border-radius: 0.3%;
   box-shadow: 1px 10px 5px rgba(63, 58, 96, 60%);
   margin: 3% auto;
-  width: 80%;
   background-color: white;
   padding: 1%;
+  color: $boardgameblue;
 
   a {
     color: $boardgameblue;
@@ -17,4 +17,9 @@
   overflow: auto;
   line-height: 1.4em;
   padding: 4%;
+}
+@media (max-width: 600px) {
+  .gameContainer {
+    width: 95%;
+  }
 }

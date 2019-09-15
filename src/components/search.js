@@ -1,20 +1,23 @@
 import React, { useState,} from 'react'
-import { BASE_URL} from '../constants'
 import Game from './game';
 import Input from './input'
+import useSearchBgg from '../hooks/useSearchBgg'
 
 const Search = (props) => {
 
-const { handleSubmit, list, slist, setSlist, searchList,} = props
+const { list, slist, setSlist, } = props
 
 const [search, setSearch] = useState('')
+const [query, setQuery] = useState('')
+const [data, loading] = useSearchBgg(query)
 
 const setSearchQuery = (event) => {
   event.preventDefault()
-  let query = search
-  query = query.replace(/\s/g, '+')
-  console.log(query)
-  handleSubmit(event, query)
+  let squery = search
+  squery = squery.replace(/\s/g, '+')
+  console.log(squery)
+  // handleSubmit(event, query)
+  setQuery(squery)
   setSearch('')
 }
 
@@ -40,9 +43,9 @@ const setSearchQuery = (event) => {
 
       <article>
         {
-          searchList.items &&
+        data.items &&
+          data.items.item.map((ele, i) => {
 
-          searchList.items.item.map((ele, i) => {
             return (
               <Game
                 name={ele.name.value}
@@ -50,7 +53,7 @@ const setSearchQuery = (event) => {
                 i={i}
               />
             )})
-        }
+          }
       </article>
     </div>
   )}
