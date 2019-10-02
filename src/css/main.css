@@ -135,7 +135,7 @@ form fieldset {
   width: 100%; }
   .modal .modal-box {
     transition: opacity 2s;
-    background-color: #b9e05d;
+    background-color: rgba(185, 224, 93, 0.7);
     opacity: 1;
     height: 100%;
     width: 100%;

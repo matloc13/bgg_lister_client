@@ -24,7 +24,8 @@ const Nav = (props) => {
       }
     })
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(json => console.log(json.user))
+    // .then(json => setUser(json.user))
     .then(setSignin(!signin))
     .catch(err => console.error(err))
   }

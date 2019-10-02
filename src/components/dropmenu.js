@@ -13,12 +13,11 @@ const {list, setList, slist, setSlist, getLists,} = props
 
 useEffect(() => {
   console.log(list)
-  console.log(uid);
   if (user) {
     getLists(uid)
   }
 
-},[])
+},[list])
 
   return (
     <div className={"dropNav"}>
@@ -57,13 +56,12 @@ useEffect(() => {
                 )
               })
 
-              }
-            </div>
+            }
+          </div>
 
         : <span className={"link"}>"Login to make a list!"</span>
 
-          }
-
+      }
 
     </div>
   )

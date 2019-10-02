@@ -9,14 +9,14 @@ const { list, slist, setSlist, } = props
 
 const [search, setSearch] = useState('')
 const [query, setQuery] = useState('')
-const [data, loading] = useSearchBgg(query)
+const [data] = useSearchBgg(query)
 
 const setSearchQuery = (event) => {
   event.preventDefault()
   let squery = search
   squery = squery.replace(/\s/g, '+')
   console.log(squery)
-  // handleSubmit(event, query)
+
   setQuery(squery)
   setSearch('')
 }

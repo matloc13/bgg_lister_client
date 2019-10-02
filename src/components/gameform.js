@@ -70,7 +70,7 @@ const notify = (item) => {
     <>
       <form onSubmit={gameSubmit} id={"gameForm"}>
         <fieldset>
-          <label htmlFor="lists">List</label>
+          <label htmlFor="lists">Add to List</label>
 
           <Select
             options={options}

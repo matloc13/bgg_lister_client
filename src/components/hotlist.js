@@ -4,7 +4,6 @@ import UserContext from '../context/usercontext'
 import NewList from './newListform';
 import GameForm from './gameform'
 import Modal from './modal';
-// import Slider from './imageSlider/slider'
 
 const HotList = (props) => {
 
@@ -27,42 +26,33 @@ const HotList = (props) => {
       }
     })
     .then(res => res.json())
-    // .then(res => setGame([json, ...game]))
     // .then(res => console.log(json))
     .then(setShowForm(!showForm))
     .catch(err => console.error(err))
   }
-  const listAndGame = (event, game, uid, title) => {
-console.log(game)
-console.log(title)
-    fetch(`${BASE_URL}/users/${uid}/listnames`, {
-      method: 'POST',
-      body: JSON.stringify({listname: {
-        title: title,
-        nu_game: game
-      }
-      }),
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json)
-    .then(json => console.log(json))
-    .then(setShowList(!showList))
-    .catch(err => console.error(err))
-  }
+//   const listAndGame = (event, game, uid, title) => {
+// console.log(game)
+// console.log(title)
+//     fetch(`${BASE_URL}/users/${uid}/listnames`, {
+//       method: 'POST',
+//       body: JSON.stringify({listname: {
+//         title: title,
+//         nu_game: game
+//       }
+//       }),
+//       headers: {
+//         'Accept': 'application/json, text/plain, */*',
+//         'Content-Type': 'application/json'
+//       }
+//     })
+//     .then(res => res.json)
+//     .then(json => console.log(json))
+//     .then(setShowList(!showList))
+//     .catch(err => console.error(err))
+//   }
 
   return (
     <div className={"hotlistContainer"}>
-      {/* {
-        hotlist.items &&
-        <>
-          <Slider
-        images={hotlist.items.item}
-          />
-        </>
-      } */}
 
       <h2>Hot 50</h2>
 
@@ -94,12 +84,12 @@ console.log(title)
                             setCGame(ele)
                             setShowForm(!showForm)
                           }}
-                        >{ !showForm ?  'add to list':'close' }</span>
+                        >{ !showForm ?  'add':'close' }</span>
                         <span onClick={()=> {
                           setCGame(ele)
                           setShowList(!showList)
                         }}
-                        >{!showList ? 'create list': 'close'}</span>
+                        >{!showList ? 'new': 'close'}</span>
                       </div>
                     </div>
                   }
@@ -117,7 +107,6 @@ console.log(title)
                     uid={uid}
                     slist={slist}
                     list={list}
-                    setList={setList}
                   />
                 }
 
@@ -125,7 +114,7 @@ console.log(title)
                   showList &&
                   cgame.id === ele.id &&
                   <NewList
-                    handleSubmit={listAndGame}
+                    // handleSubmit={listAndGame}
                     game={ele}
                     uid={uid}
                   />

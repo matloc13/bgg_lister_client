@@ -21,10 +21,6 @@ const userSubmit = (event) => {
 
   // console.log(fi);
   handleSubmit(event, fi)
-  // setInputs({
-  //   username: '',
-  //   password: ''
-  // })
 }
   return (
     <form onSubmit={userSubmit} className={"logForm"}>

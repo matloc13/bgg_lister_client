@@ -1,12 +1,14 @@
 import React, { useState,  useContext,} from 'react'
 import UserContext from '../context/usercontext'
+// import useListAndGame from '../hooks/useListAndGame';
+
 import Input from './input'
 
 const NewList= (props) => {
 
   const user = useContext(UserContext)
 
-  const { handleSubmit, uid, game, } = props
+  const { handleSubmit, game, } = props
 
   const [input, setInput] = useState({
     title: '',
@@ -16,6 +18,7 @@ const NewList= (props) => {
 
   })
 
+
 const newlistAndGame = (event) => {
   event.preventDefault()
   const game = {
@@ -24,6 +27,8 @@ const newlistAndGame = (event) => {
     bggid: input.bggid
   }
   handleSubmit(event, game, user.user.id, input.title)
+
+
 }
 
   const handlechange = (event) => {
@@ -34,6 +39,7 @@ const newlistAndGame = (event) => {
 return (
   <form onSubmit={newlistAndGame} id={'newListForm'}>
     <fieldset>
+      <h3>Create New List</h3>
 
       <Input
         handleChange={handlechange}
