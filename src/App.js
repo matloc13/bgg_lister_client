@@ -21,7 +21,6 @@ toast.configure({
   draggable: false
 })
 
-
 const  App = () => {
 
   const [user, setUser] = useState()

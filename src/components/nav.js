@@ -12,8 +12,6 @@ const Nav = (props) => {
   const [login, setLogin] = useState(false)
   const [signin, setSignin] = useState(false)
 
-
-
   const signupUser = (event, fi) => {
     fetch(`${BASE_URL}/users`, {
       body: JSON.stringify(fi),
