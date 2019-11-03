@@ -15,5 +15,4 @@
 - react-router-dom
 - React-toastify
 - react-select
-- react hooks 
 
